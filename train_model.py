@@ -40,8 +40,8 @@ def sample_time(batch_size=1):
     return np.random.uniform(0, 1, size=(batch_size,))
 
 batch_size = 256
-num_steps = 5000
-lr = 1e-3
+num_steps = 100000
+lr = 1e-4
 
 network = MLP(x_dim=2, y_num_classes=4, y_emb_dim=16, hidden_dim=256).to(device)
 optimizer = optim.Adam(network.parameters(), lr=lr)
@@ -82,9 +82,9 @@ def training_guided_flows(p_unconditional):
         optimizer.step()
 
         if (step + 1) % 1000 == 0:
-            print(f"Step {step+1}/{num_steps}, Loss: {loss.item():.6f}")
+            print(f"Step {step+1}/{num_steps}, Loss: {loss.item():.6f}", flush = True)
 
-    torch.save(network.state_dict(), "models/model_final.pt")
+    torch.save(network.state_dict(), "models/model_final_cpu_2.pt")
 
 if __name__ == "__main__":
     training_guided_flows(p_unconditional=0.1)

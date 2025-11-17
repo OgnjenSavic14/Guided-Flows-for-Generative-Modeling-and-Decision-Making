@@ -1,0 +1,5 @@
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+cpu
+SAMPLING...
+DATA1
+PLOTING
