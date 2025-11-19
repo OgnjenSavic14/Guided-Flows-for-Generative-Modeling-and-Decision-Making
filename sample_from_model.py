@@ -14,7 +14,7 @@ model.eval()
 
 def ode_step_rk4(model, x_t, t, h, y, w, device):
     with torch.no_grad():
-        y0 = torch.tensor([0], dtype=torch.long, device = device)
+        y0 = torch.zeros_like(y)
         k1 = (1 - w) * model(x_t, t, y0) + w * model(x_t, t, y)
         k2 = (1 - w) * model(x_t + 0.5 * h * k1, t + 0.5 * h, y0) + w * model(x_t + 0.5 * h * k1, t + 0.5 * h, y)
         k3 = (1 - w) * model(x_t + 0.5 * h * k2, t + 0.5 * h, y0) + w * model(x_t + 0.5 * h * k2, t + 0.5 * h, y)
@@ -22,106 +22,73 @@ def ode_step_rk4(model, x_t, t, h, y, w, device):
         x_next = x_t + (h / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4)
     return x_next
 
-def sampling_from_guided_flows(model, device, y=0, w=1.0, num_steps=100):
+def sampling_from_guided_flows(model, device, y=0, w=1.0, num_steps=100, batch_size=512):
     model.eval()
     with torch.no_grad():
-        x0 = torch.tensor(sample_noise(batch_size=1), dtype=torch.float32, device=device)
+        x0 = torch.tensor(sample_noise(batch_size=batch_size), dtype=torch.float32, device=device)
         h = 1.0 / num_steps
-        t = torch.zeros_like(x0[:, :1], device=device)
+        t = torch.zeros((batch_size, 1), device=device)
         x_t = x0.clone()
-
+        y_tensor = torch.full((batch_size,), y, dtype=torch.long, device=device)
         for _ in range(num_steps):
-            x_t = ode_step_rk4(model, x_t, t, h, torch.tensor([y], dtype=torch.long, device=device), w, device)
+            x_t = ode_step_rk4(model, x_t, t, h, y_tensor, w, device)
             t = t + h
 
-    return x_t.squeeze(0).detach().cpu().numpy()
+    return x_t.detach().cpu().numpy()
 
+n_iters = 2000
+batch_size = 512
 
-n_samples = 400
+print("SAMPLING...", flush=True)
 
-print("SAMPLING...", flush = True)
+# data1 = []
+# for i in range(3):
+#     y = i + 1
+#     cluster_batches = []
 
-data1 = []
+#     for j in range(n_iters):
+#         samples = sampling_from_guided_flows(
+#             model, device,
+#             y=y, w=1.0, num_steps=100,
+#             batch_size=batch_size
+#         )
+#         cluster_batches.append(samples)
+#         if (j + 1) % 100 == 0:
+#             print(f"{i+1}-th cluster, {j+1}-th iteration finished!", flush = True)
+
+#     cluster = np.concatenate(cluster_batches, axis=0)
+#     data1.append(cluster)
+
+# print("DATA1", flush=True)
+
+data2 = []
 for i in range(3):
     y = i + 1
-    cluster = np.array([sampling_from_guided_flows(model, device, y=y, w=1.0, num_steps=100) for _ in range(n_samples)])
-    data1.append(np.stack(cluster))
+    cluster_batches = []
 
-print("DATA1", flush = True)
+    for j in range(n_iters):
+        samples = sampling_from_guided_flows(
+            model, device,
+            y=y, w=4.0, num_steps=100,
+            batch_size=batch_size
+        )
+        cluster_batches.append(samples)
+        if (j + 1) % 100 == 0:
+            print(f"{i+1}-th cluster, {j+1}-th iteration finished!", flush = True)
 
-# data2 = []
-# for i in range(3):
-#     y = i + 1
-#     cluster = np.array([sampling_from_guided_flows(model, device, y=y, w=4.0, num_steps=100) for _ in range(n_samples)])
-#     data2.append(np.stack(cluster))
+    cluster = np.concatenate(cluster_batches, axis=0)
+    data2.append(cluster)
 
-# print("DATA2")
-
-# data3 = []
-# for i in range(3):
-#     y = i + 1
-#     cluster = np.array([sampling_from_guided_flows(model, device, y=y, w=0.0, num_steps=100) for _ in range(n_samples)])
-#     data3.append(np.stack(cluster))
-
-# print("DATA3")
+print("DATA2", flush=True)
 
 print("PLOTING", flush = True)
 fig, ax = plt.subplots(figsize=(8,6))
 
-points = np.vstack(data1)
-# for i, cluster in enumerate(data1):
-#     # ax.scatter(
-#     #     cluster[:,0], cluster[:,1],
-#     #     s=5,                      # veličina tačke
-#     #     alpha=0.4,                # providnost (0.0 - 1.0)
-#     #     color=colors[i]
-#     # )
-#     ax.hist2d(
-#         cluster[:, 0], cluster[:, 1],
-#         bins=100,                    # broj binova
-#         cmap=colors[i],             # svakom klasteru druga mapa boja
-#         alpha=0.6,                  # prozirnost da se preklapaju
-#         density=True                # da prikazuje gustinu
-#     )
-
-plt.hist2d(points[:, 0], points[:, 1], bins=100, cmap='binary')
+points = np.vstack(data2)
+plt.hist2d(points[:, 0], points[:, 1], bins=500, cmap='binary')
 
 plt.title("u_t")
 plt.xlabel("X")
 plt.ylabel("Y")
-plt.savefig("plots/u_t_data1.png", dpi=300)
+plt.savefig("plots/u_t_data2.png", dpi=300)
 plt.close()
-
-# fig, ax = plt.subplots(figsize=(8,6))
-# colors = ['Red', 'Green', 'Blue']
-
-# for i, cluster in enumerate(data2):
-#     ax.scatter(
-#         cluster[:,0], cluster[:,1],
-#         s=5,                      # veličina tačke
-#         alpha=0.4,                # providnost (0.0 - 1.0)
-#         color=colors[i]
-#     )
-
-# plt.title("u_t")
-# plt.xlabel("X")
-# plt.ylabel("Y")
-# plt.savefig("plots/u_t_data2.png", dpi=300)
-# plt.close()
-
-# fig, ax = plt.subplots(figsize=(8,6))
-# colors = ['Red', 'Green', 'Blue']
-
-# for i, cluster in enumerate(data3):
-#     ax.scatter(
-#         cluster[:,0], cluster[:,1],
-#         s=5,                      # veličina tačke
-#         alpha=0.4,                # providnost (0.0 - 1.0)
-#         color=colors[i]
-#     )
-
-# plt.title("u_t")
-# plt.xlabel("X")
-# plt.ylabel("Y")
-# plt.savefig("plots/u_t_data3.png", dpi=300)
-# plt.close()
