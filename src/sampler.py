@@ -17,7 +17,7 @@ def ode_step_rk4(model, x_t, t, h, y, w):
 
 @torch.no_grad()
 def sampling_from_guided_flows(model, device, y=0, w=1.0, num_steps=100, batch_size=512):
-    x0 = torch.tensor(sample_noise(batch_size), dtype=torch.float32, device=device)
+    x0 = torch.tensor(sample_noise(batch_size, 2), dtype=torch.float32, device=device)
     h = 1.0 / num_steps
 
     t = torch.zeros((batch_size, 1), device=device)

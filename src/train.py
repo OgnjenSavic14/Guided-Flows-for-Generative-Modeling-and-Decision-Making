@@ -43,7 +43,7 @@ class Trainer:
         y[mask] = 0
 
         # 2. Noise + time
-        x0 = torch.tensor(sample_noise(bs), dtype=torch.float32, device=self.device)
+        x0 = torch.tensor(sample_noise(bs, x1.shape[1]), dtype=torch.float32, device=self.device)
         t = torch.tensor(sample_time(bs), dtype=torch.float32, device=self.device).unsqueeze(1)
 
         # 3. x_t and dx/dt

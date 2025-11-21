@@ -12,8 +12,8 @@ def sample_mixture(batch_size=1):
     x = np.array([np.random.multivariate_normal(means[label], cov) for label in y])
     return x, y
 
-def sample_noise(batch_size=1):
-    return np.random.normal(size=(batch_size, 2))
+def sample_noise(batch_size=128, dim=2):
+    return np.random.normal(size=(batch_size, dim))
 
-def sample_time(batch_size=1):
+def sample_time(batch_size=128):
     return np.random.uniform(0, 1, size=(batch_size,))
