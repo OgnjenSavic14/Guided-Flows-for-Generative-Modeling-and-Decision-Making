@@ -7,5 +7,7 @@ train_gen, test_gen = load_data(dataset="val_blurred",
                                 mapping_dir='label_mappings.txt', seed=42)
 
 # Visualize some samples from the training and testing datasets
-show(train_gen, n=16, mapping_dir='label_mappings.txt', title='Training Samples', outfile='training_samples.png')
-show(test_gen, n=16, mapping_dir='label_mappings.txt', title='Testing Samples', outfile='testing_samples.png')
+show(train_gen, n=16, mapping_dir='label_mappings.txt', title='Training Samples', 
+     outfile='../plots/training_samples.png')
+show(test_gen, n=16, mapping_dir='label_mappings.txt', title='Testing Samples', 
+     outfile='../plots/testing_samples.png')
