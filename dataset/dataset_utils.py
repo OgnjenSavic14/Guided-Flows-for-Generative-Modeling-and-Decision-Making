@@ -96,7 +96,7 @@ def load_data(dataset, transformation=None, n_train=None, n_test=None, data_root
             with Image.open(img_path) as img:
                 img = img.convert("RGB")
                 data = transformation(img) if transformation else np.array(img)
-                # img_vector = data.flatten()
+                #img_vector = data.flatten()
                 img_vector = data
             yield img_vector, label
 
@@ -137,12 +137,9 @@ def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3)
             data, label = sample
         else:
             data, label = sample, None
-
-        if data.ndim == 1:
-            img = data.reshape(img_shape)
-        else:
-            img, label = sample, None
-
+        
+        img = data.reshape(img_shape)
+        
         ax.imshow(img)
         ax.axis("off")
 
