@@ -41,17 +41,3 @@ if __name__ == "__main__":
 
     print("Saving samples", flush = True)
     np.savez("samples/points_4.npz", *all_clusters)
-    
-    print("Plotting...", flush = True)
-    points = np.vstack(all_clusters)
-
-    plt.figure(figsize=(8, 6))
-    plt.hist2d(points[:, 0], points[:, 1], bins=500, cmap='binary')
-    plt.title("Generated Samples")
-    plt.xlabel("X")
-    plt.ylabel("Y")
-
-    plt.savefig("plots/samples.png", dpi=300)
-    plt.close()
-
-    print("Done.", flush = True)
