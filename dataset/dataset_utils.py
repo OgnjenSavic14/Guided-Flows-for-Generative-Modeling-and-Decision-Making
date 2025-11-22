@@ -57,7 +57,8 @@ def load_data(dataset, transformation=None, n_train=None, n_test=None, data_root
         sample_train: lazy (vector, numerical_label) generator for training
         sample_test: lazy (vector, numerical_label) generator for testing
     """
-    dataset_root = Path(data_root) / dataset / dataset if data_root else Path(dataset) / dataset
+    # dataset_root = Path(data_root) / dataset / dataset if data_root else Path(dataset) / dataset
+    dataset_root = Path(data_root) / dataset if data_root else Path(dataset)
     class_dirs = sorted([d for d in dataset_root.iterdir() if d.is_dir()])
 
     if mapping_dir is not None:
@@ -95,7 +96,8 @@ def load_data(dataset, transformation=None, n_train=None, n_test=None, data_root
             with Image.open(img_path) as img:
                 img = img.convert("RGB")
                 data = transformation(img) if transformation else np.array(img)
-                img_vector = data.flatten()
+                # img_vector = data.flatten()
+                img_vector = data
             yield img_vector, label
 
     return generator(train_samples), generator(test_samples)

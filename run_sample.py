@@ -4,18 +4,19 @@ import torch
 
 from src.model import MLP
 from src.sampler import sampling_from_guided_flows
-from src.utils import get_device
+from src.utils import get_device, ensure_dir
 
 
 if __name__ == "__main__":
+    ensure_dir("samples")
     device = get_device()
-    print("Using device:", device)
+    print("Using device:", device, flush = True)
 
     model = MLP().to(device)
     model.load_state_dict(torch.load("models/model_final.pt", map_location=device))
     model.eval()
 
-    print("Sampling...")
+    print("Sampling...", flush = True)
 
     all_clusters = []
     n_iters = 2000
@@ -28,17 +29,20 @@ if __name__ == "__main__":
         for j in range(n_iters):
             samples = sampling_from_guided_flows(
                 model, device,
-                y=y, w=1.0, num_steps=100,
+                y=y, w=4.0, num_steps=100,
                 batch_size=batch_size
             )
             cluster_batches.append(samples)
 
             if (j + 1) % 100 == 0:
-                print(f"Cluster {y}, iteration {j+1}/{n_iters}")
+                print(f"Cluster {y}, iteration {j+1}/{n_iters}", flush = True)
 
         all_clusters.append(np.concatenate(cluster_batches, axis=0))
 
-    print("Plotting...")
+    print("Saving samples", flush = True)
+    np.savez("samples/points_4.npz", *all_clusters)
+    
+    print("Plotting...", flush = True)
     points = np.vstack(all_clusters)
 
     plt.figure(figsize=(8, 6))
@@ -50,4 +54,4 @@ if __name__ == "__main__":
     plt.savefig("plots/samples.png", dpi=300)
     plt.close()
 
-    print("Done.")
+    print("Done.", flush = True)
