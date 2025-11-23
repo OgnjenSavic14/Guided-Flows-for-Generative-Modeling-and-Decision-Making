@@ -16,15 +16,16 @@ print("Model creation...", flush = True)
 model = ConditionalUNet(
     num_classes=1000,
     in_channels=3,
-    model_channels=256,          # povećaj kapacitet
+    model_channels=128,
     out_channels=3,
-    num_res_blocks=3,            # više res blokova
-    channel_mult=(1,2,4,4),      # manje agresivno, stabilnije
-    attention_resolutions=(32,16,8)
+    num_res_blocks=3,
+    channel_mult=(1, 2, 3, 4),
+    attention_resolutions=(2, 4, 8),
+    dropout=0.0
 )
 
 print("Loading Model...", flush = True)
-model.load_state_dict(torch.load("models/model_images_test.pt", map_location=device))
+model.load_state_dict(torch.load("models/model_images_final.pt", map_location=device))
 model.to(device)
 
 print("Sampling...", flush = True)
