@@ -64,8 +64,8 @@ class ImageNet64Dataset(Dataset):
 
         if transform is None:
             self.transform = transforms.Compose([
-                transforms.ToTensor(),                 # [0,1]
-                transforms.Normalize([0.5]*3, [0.5]*3) # -> [-1,1]
+                transforms.ToTensor()                # [0,1]
+                # transforms.Normalize([0.5]*3, [0.5]*3) # -> [-1,1]
             ])
         else:
             self.transform = transform

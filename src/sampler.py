@@ -46,19 +46,6 @@ def midpoint_solver(model: nn.Module, x_t, t, h, y):
 
 @torch.no_grad()
 def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
-    """
-    Sample images from the conditional flow-matching model.
-
-    Args:
-        model: ConditionalUNet instance
-        device: 'cuda' or 'cpu'
-        batch_size: number of images to sample
-        num_steps: number of ODE steps
-        y: optional tensor of labels (shape [B]); if None, use zeros
-
-    Returns:
-        Tensor of shape [B, C, H, W]
-    """
     model.eval()
     C, H, W = 3, 64, 64
     

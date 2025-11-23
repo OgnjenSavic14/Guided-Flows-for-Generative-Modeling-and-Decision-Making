@@ -9,8 +9,8 @@ from src.utils import get_device, ensure_dir
 # Putanja do foldera sa 64x64 ImageNet slikama
 root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
 
-batch_size = 64
-num_steps = 6750
+batch_size = 32
+num_steps = 300
 lr = 1e-4
 ensure_dir("models")
 
@@ -29,9 +29,14 @@ print("Model creation...", flush = True)
 model = ConditionalUNet(
     num_classes=1000,
     in_channels=3,
-    model_channels=128,
-    out_channels=3
+    model_channels=256,          # povećaj kapacitet
+    out_channels=3,
+    num_res_blocks=3,            # više res blokova
+    channel_mult=(1,2,4,4),      # manje agresivno, stabilnije
+    attention_resolutions=(32,16,8)
 )
+
+
 
 print("Trainer creation...", flush = True)
 trainer = TrainerImages(
@@ -39,7 +44,7 @@ trainer = TrainerImages(
     dataloader=train_loader,
     device=device,
     lr=lr,
-    model_save_path="models/model_images_final.pt"
+    model_save_path="models/model_images_test.pt"
 )
 
 print("Training...", flush = True)
