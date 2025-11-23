@@ -36,8 +36,6 @@ class ImageNet64Dataset(Dataset):
           img2.png
         n01443537/
           ...
-    mapping_file is the label_mappings.txt with lines: synset_id id class_name
-    where id is 1..1000. We will shift to 0..999 for PyTorch embedding.
     """
     def __init__(self, root, transform=None):
         self.root = root
@@ -48,7 +46,7 @@ class ImageNet64Dataset(Dataset):
             raise ValueError(f"Expected exactly one .txt file in {root}, found {len(txt_files)}")
         mapping_file = os.path.join(self.root, txt_files[0])
         
-        self.synset_to_id, _ = load_label_mappings(mapping_file)
+        self.synset_to_id, _, _ = load_label_mappings(mapping_file)
         
         for synset in sorted(os.listdir(root)):
             synset_path = os.path.join(root, synset)

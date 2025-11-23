@@ -57,7 +57,7 @@ def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
     if y is None:
         y = torch.zeros(batch_size, dtype=torch.long, device=device)
     elif isinstance(y, int):
-        y = torch.full((batch_size,), y - 1, dtype=torch.long, device=device)  # single class repeated
+        y = torch.full((batch_size,), y - 1, dtype=torch.long, device=device)
     elif isinstance(y, torch.Tensor):
         y = y.to(device)
     else:

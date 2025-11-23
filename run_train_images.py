@@ -6,7 +6,6 @@ from src.train import TrainerImages
 from src.data import get_dataloader
 from src.utils import get_device, ensure_dir
 
-# Putanja do foldera sa 64x64 ImageNet slikama
 root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
 
 batch_size = 64

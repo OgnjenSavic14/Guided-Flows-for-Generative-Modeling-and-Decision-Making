@@ -32,7 +32,7 @@ class MLP(nn.Module):
 
     def forward(self, x_t, t, y):
         y_emb = self.y_embedding(y)               # (batch_size, y_emb_dim)
-        inp = torch.cat([x_t, t, y_emb], dim=-1)  # concatenate all inputs
+        inp = torch.cat([x_t, t, y_emb], dim=-1)
         return self.net(inp)
 
 class ConditionalUNet(nn.Module):

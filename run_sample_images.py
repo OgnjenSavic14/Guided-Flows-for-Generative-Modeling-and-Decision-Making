@@ -1,8 +1,7 @@
 import torch
 from src.model import ConditionalUNet
 from src.sampler import sample_images
-from src.utils import get_device, ensure_dir
-from dataset.dataset_utils import show
+from src.utils import get_device, ensure_dir, show
 import torchvision
 import os
 
