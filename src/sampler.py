@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 
-from .data import sample_noise
+from .data import sample_noise, sample_image_noise
 
 @torch.no_grad()
 def ode_step_rk4(model, x_t, t, h, y, w):
@@ -16,7 +16,7 @@ def ode_step_rk4(model, x_t, t, h, y, w):
 
 
 @torch.no_grad()
-def sampling_from_guided_flows(model, device, y=0, w=1.0, num_steps=100, batch_size=512):
+def sampling_from_guided_flows(model, device='cuda', y=0, w=1.0, num_steps=100, batch_size=512):
     x0 = torch.tensor(sample_noise(batch_size, 2), dtype=torch.float32, device=device)
     h = 1.0 / num_steps
 
@@ -29,3 +29,55 @@ def sampling_from_guided_flows(model, device, y=0, w=1.0, num_steps=100, batch_s
         t = t + h
 
     return x_t.detach().cpu().numpy()
+
+import torch
+from torch import nn
+
+@torch.no_grad()
+def midpoint_solver(model: nn.Module, x_t, t, h, y):
+    """
+    Midpoint ODE step: x_{t+h} = x_t + h * u(t + h/2, x_t + h/2 * u(t))
+    """
+    u_t = model(x_t, t, y)
+    t_mid = t + 0.5 * h
+    x_mid = x_t + 0.5 * h * u_t
+    u_mid = model(x_mid, t_mid, y)
+    return x_t + h * u_mid
+
+@torch.no_grad()
+def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
+    """
+    Sample images from the conditional flow-matching model.
+
+    Args:
+        model: ConditionalUNet instance
+        device: 'cuda' or 'cpu'
+        batch_size: number of images to sample
+        num_steps: number of ODE steps
+        y: optional tensor of labels (shape [B]); if None, use zeros
+
+    Returns:
+        Tensor of shape [B, C, H, W]
+    """
+    model.eval()
+    C, H, W = 3, 64, 64
+    
+    x_t = torch.tensor(sample_image_noise(batch_size, C, H, W), device=device, dtype=torch.float32)
+    h = 1.0 / num_steps
+
+    t = torch.zeros(batch_size, device=device)
+
+    if y is None:
+        y = torch.zeros(batch_size, dtype=torch.long, device=device)
+    elif isinstance(y, int):
+        y = torch.full((batch_size,), y - 1, dtype=torch.long, device=device)  # single class repeated
+    elif isinstance(y, torch.Tensor):
+        y = y.to(device)
+    else:
+        raise ValueError("y must be None, int, or torch.Tensor")
+    
+    for _ in range(num_steps):
+        x_t = midpoint_solver(model, x_t, t, h, y)
+        t = t + h
+
+    return x_t.cpu()

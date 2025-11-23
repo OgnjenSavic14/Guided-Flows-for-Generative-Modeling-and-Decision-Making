@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from .unet import UNetModel
 
 class Swish(nn.Module):
     def __init__(self):
@@ -7,7 +8,6 @@ class Swish(nn.Module):
 
     def forward(self, x): 
         return torch.sigmoid(x) * x
-
 
 class MLP(nn.Module):
     def __init__(self, x_dim=2, y_num_classes=4, y_emb_dim=16, hidden_dim=256):
@@ -34,3 +34,24 @@ class MLP(nn.Module):
         y_emb = self.y_embedding(y)               # (batch_size, y_emb_dim)
         inp = torch.cat([x_t, t, y_emb], dim=-1)  # concatenate all inputs
         return self.net(inp)
+
+class ConditionalUNet(nn.Module):
+    def __init__(self, num_classes=1000, in_channels=3, model_channels=128, out_channels=3,
+                 num_res_blocks=2, channel_mult=(1, 2, 4, 8), attention_resolutions=(16, 8), dropout=0.0):
+        super().__init__()
+        self.model = UNetModel(
+            in_channels=in_channels,
+            model_channels=model_channels,
+            out_channels=out_channels,
+            num_res_blocks=num_res_blocks,
+            channel_mult=channel_mult,
+            attention_resolutions=attention_resolutions,
+            dropout=dropout,
+            num_classes=num_classes,
+        )
+
+    def forward(self, x_t, t, y):
+        return self.model(x_t, t, y)
+
+
+

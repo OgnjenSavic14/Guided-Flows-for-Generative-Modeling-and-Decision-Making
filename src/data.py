@@ -1,4 +1,10 @@
 import numpy as np
+import os
+from PIL import Image
+import torch
+from torch.utils.data import Dataset, DataLoader, random_split
+from torchvision import transforms
+from .utils import load_label_mappings
 
 def sample_mixture(batch_size=1):
     means = {
@@ -17,3 +23,79 @@ def sample_noise(batch_size=128, dim=2):
 
 def sample_time(batch_size=128):
     return np.random.uniform(0, 1, size=(batch_size,))
+
+def sample_image_noise(batch_size = 128, channels=3, height=64, width=64):
+    return np.random.randn(batch_size, channels, height, width).astype(np.float32)
+
+class ImageNet64Dataset(Dataset):
+    """
+    Expects directory structure:
+      root/
+        n01440764/
+          img1.jpg
+          img2.png
+        n01443537/
+          ...
+    mapping_file is the label_mappings.txt with lines: synset_id id class_name
+    where id is 1..1000. We will shift to 0..999 for PyTorch embedding.
+    """
+    def __init__(self, root, transform=None):
+        self.root = root
+        self.samples = []
+
+        txt_files = [f for f in os.listdir(self.root) if f.lower().endswith(".txt")]
+        if len(txt_files) != 1:
+            raise ValueError(f"Expected exactly one .txt file in {root}, found {len(txt_files)}")
+        mapping_file = os.path.join(self.root, txt_files[0])
+        
+        self.synset_to_id, _ = load_label_mappings(mapping_file)
+        
+        for synset in sorted(os.listdir(root)):
+            synset_path = os.path.join(root, synset)
+            if not os.path.isdir(synset_path):
+                continue
+            if synset not in self.synset_to_id:
+                continue
+            label1 = self.synset_to_id[synset]  # 1..1000
+            label0 = label1 - 1                 # 0..999
+            for fn in os.listdir(synset_path):
+                if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
+                    self.samples.append((os.path.join(synset_path, fn), label0))
+
+        if transform is None:
+            self.transform = transforms.Compose([
+                transforms.ToTensor(),                 # [0,1]
+                transforms.Normalize([0.5]*3, [0.5]*3) # -> [-1,1]
+            ])
+        else:
+            self.transform = transform
+
+    def __len__(self):
+        return len(self.samples)
+
+    def __getitem__(self, idx):
+        path, label = self.samples[idx]
+        img = Image.open(path).convert("RGB")
+        img = self.transform(img)   # Tensor CxHxW, float32
+        return img, torch.tensor(label, dtype=torch.long)
+
+def get_dataloader(root, batch_size=128, num_workers=4, transform=None, n_train = None, n_test = None):
+    ds = ImageNet64Dataset(root, transform)
+
+    total = len(ds)
+    if n_train is None and n_test is None:
+        n_train = int(0.8 * total)
+        n_test = total - n_train
+    elif n_train is None:
+        n_train = total - n_test
+    elif n_test is None:
+        n_test = total - n_train
+    elif n_train + n_test > total:
+        raise ValueError('Sample sizes combined exceed the total data size')
+
+    ds_train, ds_test = random_split(ds, [n_train, n_test])
+
+    train_loader = DataLoader(ds_train, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=num_workers)
+    test_loader = DataLoader(ds_test, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=num_workers)
+
+    return train_loader, test_loader 
