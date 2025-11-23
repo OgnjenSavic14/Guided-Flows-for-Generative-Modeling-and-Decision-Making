@@ -34,7 +34,7 @@ samples = sample_images(model, device=device, y=label, num_steps=num_steps, batc
 
 print("Saving...", flush = True)
 #for i in range(batch_size):
-#    torchvision.utils.save_image(samples[i], f"images/sample_{i}.png")  # [-1,1] -> [0,1]
+#    torchvision.utils.save_image(samples[i], f"images/sample_{i}.png")
 
 show(iter(samples), n=len(samples), mapping_dir='dataset/label_mappings.txt', 
      outfile=f'plots/{label}.png', label_for_all=label)
