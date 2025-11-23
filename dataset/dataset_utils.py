@@ -5,6 +5,7 @@ import math
 from pathlib import Path
 from PIL import Image
 import itertools
+import torch
 
 #%matplotlib inline
 
@@ -103,7 +104,7 @@ def load_data(dataset, transformation=None, n_train=None, n_test=None, data_root
     return generator(train_samples), generator(test_samples)
 
 
-def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3)):
+def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3), label_for_all=None):
     """
     Shows given number of samples and saves the output to the specifed file.
     Handles both image arrays and flattened vectors with numerical labels.
@@ -111,8 +112,7 @@ def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3)
 
     Args: 
         samples: data to be represented (plain or labled images)
-        rows: number of rows
-        cols: number of columns
+        n: number of samples to show
         outfile: file in which the figure will be saved (if None shows the figure directly)
         mapping_dir: path to label mapping file (to convert numerical labels to class names)
         title: name of the figure title
@@ -129,6 +129,9 @@ def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3)
         _, id_to_name = load_label_mappings(mapping_dir)
 
     fig, axes = plt.subplots(rows, cols, figsize=(cols*2, rows*2))
+    if label_for_all is not None and title=="Dataset Samples":
+        title = id_to_name.get(label_for_all, str(label_for_all))
+        
     fig.suptitle(title, fontsize=20)
     axes = np.atleast_1d(axes).flatten()
 
@@ -137,8 +140,17 @@ def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3)
             data, label = sample
         else:
             data, label = sample, None
-        
-        img = data.reshape(img_shape)
+        # If it's a PyTorch tensor -> convert and permute
+        if isinstance(data, torch.Tensor):
+            data = data.detach().cpu().numpy()
+        # If flattened vector
+        if data.ndim == 1:
+            img = data.reshape(img_shape)
+        # If PyTorch-like CHW (3,64,64) -> convert to HWC
+        elif data.ndim == 3 and data.shape[0] in (1, 3):  
+            img = np.transpose(data, (1, 2, 0))
+        else:
+            img = data
         
         ax.imshow(img)
         ax.axis("off")
