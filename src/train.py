@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from datetime import datetime
 
 from .data import sample_mixture, sample_noise, sample_time, sample_image_noise
 from .dynamics import alpha_t, sigma_t, dalpha_dt, dsigma_dt
@@ -119,26 +120,34 @@ class TrainerImages:
 
         return loss.item()
 
-    def train(self, num_steps=100000):
-        data_iter = iter(self.dataloader)
-        
-        for step in range(1, num_steps+1):
-            try:
-                x1, y = next(data_iter)
-            except StopIteration:
-                data_iter = iter(self.dataloader)
-                x1, y = next(data_iter)
+    def train(self, num_epochs=10):
+        for epoch in range(1, num_epochs + 1):
+            epoch_loss = 0.0
+            num_batches = 0
 
-            loss = self.train_step(x1, y)
+            print(f"Starting epoch = {epoch}", flush = True)
+            start_time = datetime.now()
+            for x1, y in self.dataloader: 
+                loss = self.train_step(x1, y)
+                
+                # prev_lr = self.optimizer.param_groups[0]['lr']
+                # self.scheduler.step(loss)
+                # new_lr = self.optimizer.param_groups[0]['lr']
+                # if new_lr < prev_lr:
+                #     print(f"Learning rate decreased from {prev_lr:.2e} to {new_lr:.2e}", flush = True)
+                
+                epoch_loss += loss
+                num_batches += 1
 
-            prev_lr = self.optimizer.param_groups[0]['lr']
-            self.scheduler.step(loss)
-            new_lr = self.optimizer.param_groups[0]['lr']
-            if new_lr < prev_lr:
-                print(f"Learning rate decreased from {prev_lr:.2e} to {new_lr:.2e}", flush = True)
+                if num_batches % 10 == 0:
+                    end_time = datetime.now()
+                    print(f"  Batch {num_batches} - loss: {loss:.6f}", flush = True)
+                    duration = end_time - start_time
+                    print(f"  10 batches time: {duration}", flush = True)
+                    start_time = datetime.now()
 
-            if step % 10 == 0:
-                print(f"Step {step}/{num_steps} - loss: {loss:.6f}", flush = True)
+            avg_loss = epoch_loss / num_batches
+            print(f"Epoch {epoch}/{num_epochs} - avg loss: {avg_loss:.6f}", flush = True)
 
         torch.save(self.model.state_dict(), self.model_save_path)
-        print(f"Saved model to {self.model_save_path}", flush = True)
+        print(f"Saved model to {self.model_save_path}", flush=True)

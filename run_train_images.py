@@ -8,8 +8,8 @@ from src.utils import get_device, ensure_dir
 
 root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
 
-batch_size = 64
-num_steps = 500
+batch_size = 32
+num_epochs = 2
 lr = 1e-4
 ensure_dir("models")
 
@@ -35,9 +35,7 @@ model = ConditionalUNet(
     attention_resolutions=(2, 4, 8),
     dropout=0.0
 )
-
-
-
+    
 print("Trainer creation...", flush = True)
 trainer = TrainerImages(
     model=model,
@@ -48,4 +46,4 @@ trainer = TrainerImages(
 )
 
 print("Training...", flush = True)
-trainer.train(num_steps=num_steps)
+trainer.train(num_epochs = num_epochs)

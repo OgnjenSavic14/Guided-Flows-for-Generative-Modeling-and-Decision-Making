@@ -1,0 +1,32 @@
+Job started on Sat Dec  6 01:59:17 CET 2025
+Loading data...
+Model creation...
+Trainer creation...
+Training...
+Starting epoch = 1
+  Batch 10 - loss: 1.044498
+  10 batches time: 0:00:07.850230
+  Batch 20 - loss: 0.936222
+  10 batches time: 0:00:05.107081
+  Batch 30 - loss: 0.822076
+  10 batches time: 0:00:05.106010
+  Batch 40 - loss: 0.703338
+  10 batches time: 0:00:05.105637
+  Batch 50 - loss: 0.589038
+  10 batches time: 0:00:05.104347
+  Batch 60 - loss: 0.479266
+  10 batches time: 0:00:08.735177
+  Batch 70 - loss: 0.419002
+  10 batches time: 0:00:05.105640
+  Batch 80 - loss: 0.327246
+  10 batches time: 0:00:05.106509
+  Batch 90 - loss: 0.289124
+  10 batches time: 0:00:05.104505
+  Batch 100 - loss: 0.213904
+  10 batches time: 0:00:05.106862
+  Batch 110 - loss: 0.214020
+  10 batches time: 0:00:05.106542
+  Batch 120 - loss: 0.189242
+  10 batches time: 0:00:05.105684
+  Batch 130 - loss: 0.155413
+  10 batches time: 0:00:05.105216
