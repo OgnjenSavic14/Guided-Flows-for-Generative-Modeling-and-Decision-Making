@@ -6,10 +6,11 @@ from src.train import TrainerImages
 from src.data import get_dataloader
 from src.utils import get_device, ensure_dir
 
-root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
+train_root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
+test_root_dir = "/home/pml02/datasets/ImageNet_val_64x64"
 
 batch_size = 32
-num_epochs = 2
+num_epochs = 5
 lr = 1e-4
 ensure_dir("models")
 
@@ -17,16 +18,14 @@ device = get_device()
 
 print("Loading data...", flush = True)
 train_loader, test_loader = get_dataloader(
-    root=root_dir,
-    batch_size=batch_size,
-    transform=None,
-    n_train=None,
-    n_test=None,
+    train_root=train_root_dir,
+    val_root=test_root_dir,
+    batch_size=batch_size
 )
 
 print("Model creation...", flush = True)
 model = ConditionalUNet(
-    num_classes=1000,
+    num_classes=1001,
     in_channels=3,
     model_channels=128,
     out_channels=3,
@@ -42,7 +41,7 @@ trainer = TrainerImages(
     dataloader=train_loader,
     device=device,
     lr=lr,
-    model_save_path="models/model_images_final.pt"
+    model_save_path="models/model_images.pt"
 )
 
 print("Training...", flush = True)

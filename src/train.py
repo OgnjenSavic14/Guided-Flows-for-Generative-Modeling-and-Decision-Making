@@ -2,9 +2,11 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from datetime import datetime
+# from torchmetrics.image.fid import FrechetInceptionDistance
 
 from .data import sample_mixture, sample_noise, sample_time, sample_image_noise
 from .dynamics import alpha_t, sigma_t, dalpha_dt, dsigma_dt
+from .sampler import sample_images
 
 class TrainerConfig:
     def __init__(
@@ -89,6 +91,8 @@ class TrainerImages:
             self.optimizer, factor=0.5, patience=200
         )
 
+        # self.fid_evaluator = FrechetInceptionDistance(feature=2048).to(self.device)
+
     def train_step(self, x1, y):
         self.model.train()
 
@@ -139,11 +143,11 @@ class TrainerImages:
                 epoch_loss += loss
                 num_batches += 1
 
-                if num_batches % 10 == 0:
+                if num_batches % 100 == 0:
                     end_time = datetime.now()
-                    print(f"  Batch {num_batches} - loss: {loss:.6f}", flush = True)
+                    print(f"Epoch {epoch}:  Batch {num_batches} - loss: {loss:.6f}", flush = True)
                     duration = end_time - start_time
-                    print(f"  10 batches time: {duration}", flush = True)
+                    print(f"                100 batches time: {duration}", flush = True)
                     start_time = datetime.now()
 
             avg_loss = epoch_loss / num_batches

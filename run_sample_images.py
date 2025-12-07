@@ -14,7 +14,7 @@ label = 35
 
 print("Model creation...", flush = True)
 model = ConditionalUNet(
-    num_classes=1000,
+    num_classes=1001,
     in_channels=3,
     model_channels=128,
     out_channels=3,

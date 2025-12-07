@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+from torch import nn
 
 from .data import sample_noise, sample_image_noise
 
@@ -30,9 +31,6 @@ def sampling_from_guided_flows(model, device='cuda', y=0, w=1.0, num_steps=100, 
 
     return x_t.detach().cpu().numpy()
 
-import torch
-from torch import nn
-
 @torch.no_grad()
 def midpoint_solver(model: nn.Module, x_t, t, h, y):
     """
@@ -57,7 +55,7 @@ def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
     if y is None:
         y = torch.zeros(batch_size, dtype=torch.long, device=device)
     elif isinstance(y, int):
-        y = torch.full((batch_size,), y - 1, dtype=torch.long, device=device)
+        y = torch.full((batch_size,), y, dtype=torch.long, device=device)
     elif isinstance(y, torch.Tensor):
         y = y.to(device)
     else:

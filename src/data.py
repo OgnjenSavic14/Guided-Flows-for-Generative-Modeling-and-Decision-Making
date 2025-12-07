@@ -4,7 +4,7 @@ from PIL import Image
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 from torchvision import transforms
-from .utils import load_label_mappings
+from .utils import load_label_mappings, check_size
 
 def sample_mixture(batch_size=1):
     means = {
@@ -55,10 +55,11 @@ class ImageNet64Dataset(Dataset):
             if synset not in self.synset_to_id:
                 continue
             label1 = self.synset_to_id[synset]  # 1..1000
-            label0 = label1 - 1                 # 0..999
+            # label0 = label1 - 1                 # 0..999
             for fn in os.listdir(synset_path):
                 if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
-                    self.samples.append((os.path.join(synset_path, fn), label0))
+                    # self.samples.append((os.path.join(synset_path, fn), label0))
+                    self.samples.append((os.path.join(synset_path, fn), label1))
 
         if transform is None:
             self.transform = transforms.Compose([
@@ -77,21 +78,39 @@ class ImageNet64Dataset(Dataset):
         img = self.transform(img)   # Tensor CxHxW, float32
         return img, torch.tensor(label, dtype=torch.long)
 
-def get_dataloader(root, batch_size=128, num_workers=4, transform=None, n_train = None, n_test = None):
-    ds = ImageNet64Dataset(root, transform)
+def get_dataloader(train_root, val_root = None, batch_size=128, num_workers=4, transform=None, n_train = None, n_test = None):
+    ds = ImageNet64Dataset(train_root, transform)
+    
+    if val_root is None:
+        check_size(n_train, ds, "n_train")
+        check_size(n_test, ds, "n_test")
+        total = len(ds)
+        
+        if n_train is None and n_test is None:
+            n_train = int(0.8 * total)
+            n_test = total - n_train
+        elif n_train is None:
+            n_train = total - n_test
+        elif n_test is None:
+            n_test = total - n_train
+        else:
+            check_size(n_train + n_test, ds, "n_train + n_test")
 
-    total = len(ds)
-    if n_train is None and n_test is None:
-        n_train = int(0.8 * total)
-        n_test = total - n_train
-    elif n_train is None:
-        n_train = total - n_test
-    elif n_test is None:
-        n_test = total - n_train
-    elif n_train + n_test > total:
-        raise ValueError('Sample sizes combined exceed the total data size')
+        ds_train, ds_test, _ = random_split(ds, [n_train, n_test, len(ds) - n_train - n_test])
+    else:
+        ds_train = ds
+        ds_test = ImageNet64Dataset(val_root, transform)
 
-    ds_train, ds_test = random_split(ds, [n_train, n_test])
+        check_size(n_train, ds_train, "n_train")
+        check_size(n_test, ds_test, "n_test")
+        
+        if n_train is not None and n_test is not None: 
+            ds_train, _ = random_split(ds_train, [n_train, len(ds_train) - n_train])
+            ds_test, _ = random_split(ds_test, [n_test, len(ds_test) - n_test])
+        elif n_train is not None:
+            ds_train, _ = random_split(ds_train, [n_train, len(ds_train) - n_train])
+        elif n_test is not None:
+            ds_test, _ = random_split(ds_test, [n_test, len(ds_test) - n_test])
 
     train_loader = DataLoader(ds_train, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=num_workers)
     test_loader = DataLoader(ds_test, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=num_workers)

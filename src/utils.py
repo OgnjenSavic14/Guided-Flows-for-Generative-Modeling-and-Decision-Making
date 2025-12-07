@@ -30,6 +30,10 @@ def load_label_mappings(mapping_file):
                 id_to_name[id_num] = class_name
     return synset_to_id, name_to_id, id_to_name
 
+def check_size(n, dataset, name="dataset"):
+    if n is not None and n > len(dataset):
+        raise ValueError(f"Sample size {name}={n} exceeds the dataset size {len(dataset)}")
+
 def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3), label_for_all=None):
     """
     Shows given number of samples and saves the output to the specifed file.

@@ -1,0 +1,1786 @@
+Job started on Sat Dec  6 11:49:00 CET 2025
+Loading data...
+Model creation...
+Trainer creation...
+Training...
+Starting epoch = 1
+Epoch 1:  Batch 100 - loss: 0.200490
+                100 batches time: 0:00:59.388017
+Epoch 1:  Batch 200 - loss: 0.182148
+                100 batches time: 0:00:51.760657
+Epoch 1:  Batch 300 - loss: 0.137933
+                100 batches time: 0:00:52.682107
+Epoch 1:  Batch 400 - loss: 0.096393
+                100 batches time: 0:00:59.391755
+Epoch 1:  Batch 500 - loss: 0.088074
+                100 batches time: 0:00:51.652017
+Epoch 1:  Batch 600 - loss: 0.145032
+                100 batches time: 0:00:52.837085
+Epoch 1:  Batch 700 - loss: 0.082935
+                100 batches time: 0:01:00.213016
+Epoch 1:  Batch 800 - loss: 0.104871
+                100 batches time: 0:00:55.369556
+Epoch 1:  Batch 900 - loss: 0.083522
+                100 batches time: 0:00:51.671445
+Epoch 1:  Batch 1000 - loss: 0.081216
+                100 batches time: 0:00:51.678886
+Epoch 1:  Batch 1100 - loss: 0.094743
+                100 batches time: 0:00:51.744563
+Epoch 1:  Batch 1200 - loss: 0.083693
+                100 batches time: 0:00:54.717546
+Epoch 1:  Batch 1300 - loss: 0.086372
+                100 batches time: 0:00:51.964249
+Epoch 1:  Batch 1400 - loss: 0.080787
+                100 batches time: 0:00:51.968444
+Epoch 1:  Batch 1500 - loss: 0.096331
+                100 batches time: 0:01:00.278429
+Epoch 1:  Batch 1600 - loss: 0.093614
+                100 batches time: 0:00:54.400087
+Epoch 1:  Batch 1700 - loss: 0.091250
+                100 batches time: 0:00:51.704429
+Epoch 1:  Batch 1800 - loss: 0.073612
+                100 batches time: 0:00:51.715770
+Epoch 1:  Batch 1900 - loss: 0.092056
+                100 batches time: 0:01:03.475556
+Epoch 1:  Batch 2000 - loss: 0.116066
+                100 batches time: 0:00:52.981900
+Epoch 1:  Batch 2100 - loss: 0.075323
+                100 batches time: 0:00:51.704407
+Epoch 1:  Batch 2200 - loss: 0.129302
+                100 batches time: 0:00:51.750150
+Epoch 1:  Batch 2300 - loss: 0.095168
+                100 batches time: 0:00:52.559933
+Epoch 1:  Batch 2400 - loss: 0.095234
+                100 batches time: 0:00:51.727679
+Epoch 1:  Batch 2500 - loss: 0.076945
+                100 batches time: 0:00:55.522983
+Epoch 1:  Batch 2600 - loss: 0.069388
+                100 batches time: 0:00:51.700927
+Epoch 1:  Batch 2700 - loss: 0.120292
+                100 batches time: 0:01:19.505422
+Epoch 1:  Batch 2800 - loss: 0.067067
+                100 batches time: 0:00:54.202282
+Epoch 1:  Batch 2900 - loss: 0.101989
+                100 batches time: 0:00:51.683375
+Epoch 1:  Batch 3000 - loss: 0.094439
+                100 batches time: 0:00:53.824850
+Epoch 1:  Batch 3100 - loss: 0.106084
+                100 batches time: 0:01:04.439961
+Epoch 1:  Batch 3200 - loss: 0.084402
+                100 batches time: 0:00:52.702188
+Epoch 1:  Batch 3300 - loss: 0.101740
+                100 batches time: 0:00:51.666423
+Epoch 1:  Batch 3400 - loss: 0.089131
+                100 batches time: 0:00:51.714089
+Epoch 1:  Batch 3500 - loss: 0.071546
+                100 batches time: 0:01:06.550268
+Epoch 1:  Batch 3600 - loss: 0.108794
+                100 batches time: 0:00:51.689596
+Epoch 1:  Batch 3700 - loss: 0.088779
+                100 batches time: 0:00:51.776390
+Epoch 1:  Batch 3800 - loss: 0.136039
+                100 batches time: 0:00:51.771770
+Epoch 1:  Batch 3900 - loss: 0.085815
+                100 batches time: 0:01:01.078402
+Epoch 1:  Batch 4000 - loss: 0.078535
+                100 batches time: 0:00:51.690491
+Epoch 1:  Batch 4100 - loss: 0.092004
+                100 batches time: 0:00:51.725502
+Epoch 1:  Batch 4200 - loss: 0.088518
+                100 batches time: 0:00:51.710655
+Epoch 1:  Batch 4300 - loss: 0.100501
+                100 batches time: 0:01:02.904681
+Epoch 1:  Batch 4400 - loss: 0.102501
+                100 batches time: 0:00:53.952910
+Epoch 1:  Batch 4500 - loss: 0.071164
+                100 batches time: 0:00:52.542933
+Epoch 1:  Batch 4600 - loss: 0.084811
+                100 batches time: 0:00:51.673449
+Epoch 1:  Batch 4700 - loss: 0.072836
+                100 batches time: 0:01:03.669711
+Epoch 1:  Batch 4800 - loss: 0.093524
+                100 batches time: 0:01:07.984412
+Epoch 1:  Batch 4900 - loss: 0.080079
+                100 batches time: 0:00:57.912894
+Epoch 1:  Batch 5000 - loss: 0.096286
+                100 batches time: 0:00:52.586315
+Epoch 1:  Batch 5100 - loss: 0.068568
+                100 batches time: 0:01:01.723596
+Epoch 1:  Batch 5200 - loss: 0.098879
+                100 batches time: 0:00:56.099369
+Epoch 1:  Batch 5300 - loss: 0.065599
+                100 batches time: 0:00:51.660549
+Epoch 1:  Batch 5400 - loss: 0.101625
+                100 batches time: 0:00:53.982187
+Epoch 1:  Batch 5500 - loss: 0.114399
+                100 batches time: 0:00:58.078972
+Epoch 1:  Batch 5600 - loss: 0.108783
+                100 batches time: 0:00:51.587323
+Epoch 1:  Batch 5700 - loss: 0.111058
+                100 batches time: 0:00:52.181185
+Epoch 1:  Batch 5800 - loss: 0.106782
+                100 batches time: 0:00:51.755562
+Epoch 1:  Batch 5900 - loss: 0.083731
+                100 batches time: 0:01:01.087315
+Epoch 1:  Batch 6000 - loss: 0.082048
+                100 batches time: 0:00:51.708810
+Epoch 1:  Batch 6100 - loss: 0.080088
+                100 batches time: 0:00:51.691331
+Epoch 1:  Batch 6200 - loss: 0.064550
+                100 batches time: 0:00:51.711684
+Epoch 1:  Batch 6300 - loss: 0.091962
+                100 batches time: 0:00:57.696789
+Epoch 1:  Batch 6400 - loss: 0.091977
+                100 batches time: 0:00:55.909556
+Epoch 1:  Batch 6500 - loss: 0.074013
+                100 batches time: 0:00:52.423719
+Epoch 1:  Batch 6600 - loss: 0.081475
+                100 batches time: 0:00:51.675537
+Epoch 1:  Batch 6700 - loss: 0.091224
+                100 batches time: 0:00:56.092422
+Epoch 1:  Batch 6800 - loss: 0.061275
+                100 batches time: 0:00:51.648947
+Epoch 1:  Batch 6900 - loss: 0.076164
+                100 batches time: 0:00:51.642791
+Epoch 1:  Batch 7000 - loss: 0.143968
+                100 batches time: 0:00:55.088262
+Epoch 1:  Batch 7100 - loss: 0.108414
+                100 batches time: 0:00:53.662429
+Epoch 1:  Batch 7200 - loss: 0.073822
+                100 batches time: 0:00:55.229876
+Epoch 1:  Batch 7300 - loss: 0.096805
+                100 batches time: 0:00:51.140497
+Epoch 1:  Batch 7400 - loss: 0.059958
+                100 batches time: 0:00:51.130508
+Epoch 1:  Batch 7500 - loss: 0.121098
+                100 batches time: 0:01:03.842491
+Epoch 1:  Batch 7600 - loss: 0.072464
+                100 batches time: 0:00:51.102800
+Epoch 1:  Batch 7700 - loss: 0.094518
+                100 batches time: 0:00:51.139567
+Epoch 1:  Batch 7800 - loss: 0.083681
+                100 batches time: 0:00:51.166979
+Epoch 1:  Batch 7900 - loss: 0.083386
+                100 batches time: 0:00:52.752424
+Epoch 1:  Batch 8000 - loss: 0.079529
+                100 batches time: 0:00:51.294910
+Epoch 1:  Batch 8100 - loss: 0.098835
+                100 batches time: 0:00:51.107017
+Epoch 1:  Batch 8200 - loss: 0.067531
+                100 batches time: 0:00:51.109694
+Epoch 1:  Batch 8300 - loss: 0.096828
+                100 batches time: 0:00:51.518690
+Epoch 1:  Batch 8400 - loss: 0.090485
+                100 batches time: 0:00:54.327427
+Epoch 1:  Batch 8500 - loss: 0.065220
+                100 batches time: 0:00:53.707112
+Epoch 1:  Batch 8600 - loss: 0.121714
+                100 batches time: 0:00:51.620806
+Epoch 1:  Batch 8700 - loss: 0.057919
+                100 batches time: 0:00:51.621544
+Epoch 1:  Batch 8800 - loss: 0.070895
+                100 batches time: 0:01:04.469170
+Epoch 1:  Batch 8900 - loss: 0.070147
+                100 batches time: 0:00:51.745045
+Epoch 1:  Batch 9000 - loss: 0.074945
+                100 batches time: 0:00:51.627677
+Epoch 1:  Batch 9100 - loss: 0.090742
+                100 batches time: 0:00:54.323335
+Epoch 1:  Batch 9200 - loss: 0.083842
+                100 batches time: 0:01:02.170179
+Epoch 1:  Batch 9300 - loss: 0.074918
+                100 batches time: 0:00:53.213619
+Epoch 1:  Batch 9400 - loss: 0.060254
+                100 batches time: 0:00:54.679008
+Epoch 1:  Batch 9500 - loss: 0.100036
+                100 batches time: 0:00:51.697743
+Epoch 1:  Batch 9600 - loss: 0.087169
+                100 batches time: 0:00:55.596032
+Epoch 1:  Batch 9700 - loss: 0.082560
+                100 batches time: 0:00:57.974802
+Epoch 1:  Batch 9800 - loss: 0.085613
+                100 batches time: 0:00:51.688531
+Epoch 1:  Batch 9900 - loss: 0.075707
+                100 batches time: 0:00:57.412080
+Epoch 1:  Batch 10000 - loss: 0.063258
+                100 batches time: 0:00:51.711321
+Epoch 1:  Batch 10100 - loss: 0.059924
+                100 batches time: 0:01:04.336357
+Epoch 1:  Batch 10200 - loss: 0.091583
+                100 batches time: 0:02:05.722890
+Epoch 1:  Batch 10300 - loss: 0.101482
+                100 batches time: 0:00:51.624929
+Epoch 1:  Batch 10400 - loss: 0.072859
+                100 batches time: 0:00:51.661772
+Epoch 1:  Batch 10500 - loss: 0.087699
+                100 batches time: 0:01:04.553451
+Epoch 1:  Batch 10600 - loss: 0.137934
+                100 batches time: 0:00:53.745319
+Epoch 1:  Batch 10700 - loss: 0.114794
+                100 batches time: 0:00:51.664440
+Epoch 1:  Batch 10800 - loss: 0.084941
+                100 batches time: 0:00:51.639364
+Epoch 1:  Batch 10900 - loss: 0.076695
+                100 batches time: 0:00:53.980945
+Epoch 1:  Batch 11000 - loss: 0.096700
+                100 batches time: 0:01:03.266987
+Epoch 1:  Batch 11100 - loss: 0.081557
+                100 batches time: 0:00:52.769670
+Epoch 1:  Batch 11200 - loss: 0.089756
+                100 batches time: 0:00:52.494877
+Epoch 1:  Batch 11300 - loss: 0.061905
+                100 batches time: 0:00:51.682854
+Epoch 1:  Batch 11400 - loss: 0.065602
+                100 batches time: 0:00:51.664216
+Epoch 1:  Batch 11500 - loss: 0.093752
+                100 batches time: 0:01:00.292780
+Epoch 1:  Batch 11600 - loss: 0.073339
+                100 batches time: 0:00:51.664943
+Epoch 1:  Batch 11700 - loss: 0.082399
+                100 batches time: 0:00:51.708857
+Epoch 1:  Batch 11800 - loss: 0.112265
+                100 batches time: 0:00:51.690104
+Epoch 1:  Batch 11900 - loss: 0.068949
+                100 batches time: 0:00:54.378463
+Epoch 1:  Batch 12000 - loss: 0.094626
+                100 batches time: 0:00:53.993846
+Epoch 1:  Batch 12100 - loss: 0.097569
+                100 batches time: 0:00:51.616576
+Epoch 1:  Batch 12200 - loss: 0.058159
+                100 batches time: 0:00:51.610203
+Epoch 1:  Batch 12300 - loss: 0.095840
+                100 batches time: 0:00:53.453012
+Epoch 1:  Batch 12400 - loss: 0.077011
+                100 batches time: 0:00:52.041877
+Epoch 1:  Batch 12500 - loss: 0.077668
+                100 batches time: 0:00:51.695023
+Epoch 1:  Batch 12600 - loss: 0.088251
+                100 batches time: 0:00:55.190347
+Epoch 1:  Batch 12700 - loss: 0.075814
+                100 batches time: 0:00:53.560552
+Epoch 1:  Batch 12800 - loss: 0.085231
+                100 batches time: 0:01:08.618294
+Epoch 1:  Batch 12900 - loss: 0.088026
+                100 batches time: 0:00:51.641638
+Epoch 1:  Batch 13000 - loss: 0.078070
+                100 batches time: 0:00:51.646553
+Epoch 1:  Batch 13100 - loss: 0.076134
+                100 batches time: 0:00:56.201400
+Epoch 1:  Batch 13200 - loss: 0.075049
+                100 batches time: 0:00:51.646636
+Epoch 1:  Batch 13300 - loss: 0.086484
+                100 batches time: 0:01:00.654284
+Epoch 1:  Batch 13400 - loss: 0.093825
+                100 batches time: 0:00:51.663793
+Epoch 1:  Batch 13500 - loss: 0.067903
+                100 batches time: 0:00:52.056073
+Epoch 1:  Batch 13600 - loss: 0.068590
+                100 batches time: 0:00:54.512353
+Epoch 1:  Batch 13700 - loss: 0.072888
+                100 batches time: 0:01:04.360650
+Epoch 1:  Batch 13800 - loss: 0.070317
+                100 batches time: 0:00:51.693594
+Epoch 1:  Batch 13900 - loss: 0.093710
+                100 batches time: 0:00:51.642348
+Epoch 1:  Batch 14000 - loss: 0.089099
+                100 batches time: 0:00:51.668451
+Epoch 1:  Batch 14100 - loss: 0.098488
+                100 batches time: 0:00:51.759976
+Epoch 1:  Batch 14200 - loss: 0.070087
+                100 batches time: 0:00:59.507411
+Epoch 1:  Batch 14300 - loss: 0.094216
+                100 batches time: 0:00:51.687410
+Epoch 1:  Batch 14400 - loss: 0.051089
+                100 batches time: 0:00:51.666155
+Epoch 1:  Batch 14500 - loss: 0.105893
+                100 batches time: 0:00:51.691479
+Epoch 1:  Batch 14600 - loss: 0.080527
+                100 batches time: 0:01:06.527211
+Epoch 1:  Batch 14700 - loss: 0.113364
+                100 batches time: 0:01:04.664125
+Epoch 1:  Batch 14800 - loss: 0.095463
+                100 batches time: 0:00:51.623255
+Epoch 1:  Batch 14900 - loss: 0.107366
+                100 batches time: 0:00:51.589347
+Epoch 1:  Batch 15000 - loss: 0.082333
+                100 batches time: 0:00:51.604373
+Epoch 1:  Batch 15100 - loss: 0.119246
+                100 batches time: 0:00:57.465076
+Epoch 1:  Batch 15200 - loss: 0.073162
+                100 batches time: 0:00:52.966096
+Epoch 1:  Batch 15300 - loss: 0.091350
+                100 batches time: 0:00:51.605012
+Epoch 1:  Batch 15400 - loss: 0.075762
+                100 batches time: 0:00:51.600462
+Epoch 1:  Batch 15500 - loss: 0.088676
+                100 batches time: 0:00:59.548397
+Epoch 1:  Batch 15600 - loss: 0.073245
+                100 batches time: 0:00:51.634228
+Epoch 1:  Batch 15700 - loss: 0.075684
+                100 batches time: 0:00:53.458369
+Epoch 1:  Batch 15800 - loss: 0.083791
+                100 batches time: 0:00:51.649812
+Epoch 1:  Batch 15900 - loss: 0.070853
+                100 batches time: 0:01:00.717795
+Epoch 1:  Batch 16000 - loss: 0.081346
+                100 batches time: 0:00:51.105783
+Epoch 1:  Batch 16100 - loss: 0.105309
+                100 batches time: 0:00:53.544794
+Epoch 1:  Batch 16200 - loss: 0.071731
+                100 batches time: 0:00:52.040636
+Epoch 1:  Batch 16300 - loss: 0.091984
+                100 batches time: 0:00:53.183134
+Epoch 1:  Batch 16400 - loss: 0.071153
+                100 batches time: 0:01:01.685437
+Epoch 1:  Batch 16500 - loss: 0.071322
+                100 batches time: 0:00:51.043050
+Epoch 1:  Batch 16600 - loss: 0.082126
+                100 batches time: 0:00:51.070836
+Epoch 1:  Batch 16700 - loss: 0.081417
+                100 batches time: 0:00:51.903014
+Epoch 1:  Batch 16800 - loss: 0.096330
+                100 batches time: 0:00:51.860881
+Epoch 1:  Batch 16900 - loss: 0.085289
+                100 batches time: 0:01:03.522284
+Epoch 1:  Batch 17000 - loss: 0.118713
+                100 batches time: 0:01:04.668542
+Epoch 1:  Batch 17100 - loss: 0.079607
+                100 batches time: 0:00:53.093271
+Epoch 1:  Batch 17200 - loss: 0.076997
+                100 batches time: 0:00:51.360572
+Epoch 1:  Batch 17300 - loss: 0.091721
+                100 batches time: 0:00:51.119232
+Epoch 1:  Batch 17400 - loss: 0.101571
+                100 batches time: 0:00:51.344017
+Epoch 1:  Batch 17500 - loss: 0.072940
+                100 batches time: 0:00:55.829956
+Epoch 1:  Batch 17600 - loss: 0.064473
+                100 batches time: 0:01:01.594659
+Epoch 1:  Batch 17700 - loss: 0.094261
+                100 batches time: 0:00:59.263929
+Epoch 1:  Batch 17800 - loss: 0.073342
+                100 batches time: 0:01:07.900579
+Epoch 1:  Batch 17900 - loss: 0.071040
+                100 batches time: 0:00:51.816461
+Epoch 1:  Batch 18000 - loss: 0.071003
+                100 batches time: 0:00:55.591559
+Epoch 1:  Batch 18100 - loss: 0.068315
+                100 batches time: 0:00:57.835636
+Epoch 1:  Batch 18200 - loss: 0.100679
+                100 batches time: 0:00:54.218541
+Epoch 1:  Batch 18300 - loss: 0.073014
+                100 batches time: 0:00:51.391789
+Epoch 1:  Batch 18400 - loss: 0.101126
+                100 batches time: 0:00:52.338733
+Epoch 1:  Batch 18500 - loss: 0.072812
+                100 batches time: 0:00:51.143871
+Epoch 1:  Batch 18600 - loss: 0.105883
+                100 batches time: 0:00:51.176003
+Epoch 1:  Batch 18700 - loss: 0.057274
+                100 batches time: 0:00:59.683395
+Epoch 1:  Batch 18800 - loss: 0.069368
+                100 batches time: 0:00:52.934292
+Epoch 1:  Batch 18900 - loss: 0.086149
+                100 batches time: 0:00:51.022764
+Epoch 1:  Batch 19000 - loss: 0.085994
+                100 batches time: 0:00:51.489190
+Epoch 1:  Batch 19100 - loss: 0.089201
+                100 batches time: 0:00:53.001552
+Epoch 1:  Batch 19200 - loss: 0.117795
+                100 batches time: 0:00:56.282364
+Epoch 1:  Batch 19300 - loss: 0.079842
+                100 batches time: 0:00:56.618603
+Epoch 1:  Batch 19400 - loss: 0.090562
+                100 batches time: 0:00:53.454555
+Epoch 1:  Batch 19500 - loss: 0.082372
+                100 batches time: 0:01:07.840298
+Epoch 1:  Batch 19600 - loss: 0.092118
+                100 batches time: 0:01:00.751003
+Epoch 1:  Batch 19700 - loss: 0.098429
+                100 batches time: 0:00:51.597054
+Epoch 1:  Batch 19800 - loss: 0.091147
+                100 batches time: 0:00:55.554003
+Epoch 1:  Batch 19900 - loss: 0.078074
+                100 batches time: 0:01:08.358315
+Epoch 1:  Batch 20000 - loss: 0.092341
+                100 batches time: 0:01:04.149579
+Epoch 1:  Batch 20100 - loss: 0.105369
+                100 batches time: 0:01:04.281923
+Epoch 1:  Batch 20200 - loss: 0.067883
+                100 batches time: 0:00:52.387221
+Epoch 1:  Batch 20300 - loss: 0.077027
+                100 batches time: 0:01:08.337679
+Epoch 1:  Batch 20400 - loss: 0.078009
+                100 batches time: 0:01:14.684944
+Epoch 1:  Batch 20500 - loss: 0.089396
+                100 batches time: 0:01:11.796140
+Epoch 1:  Batch 20600 - loss: 0.063617
+                100 batches time: 0:01:04.538280
+Epoch 1:  Batch 20700 - loss: 0.072441
+                100 batches time: 0:01:10.085967
+Epoch 1:  Batch 20800 - loss: 0.074057
+                100 batches time: 0:00:53.977994
+Epoch 1:  Batch 20900 - loss: 0.063306
+                100 batches time: 0:00:59.410045
+Epoch 1:  Batch 21000 - loss: 0.103761
+                100 batches time: 0:00:51.570461
+Epoch 1:  Batch 21100 - loss: 0.068915
+                100 batches time: 0:00:52.058430
+Epoch 1:  Batch 21200 - loss: 0.087715
+                100 batches time: 0:00:53.610148
+Epoch 1:  Batch 21300 - loss: 0.066442
+                100 batches time: 0:00:51.858079
+Epoch 1:  Batch 21400 - loss: 0.066383
+                100 batches time: 0:00:53.460647
+Epoch 1:  Batch 21500 - loss: 0.071031
+                100 batches time: 0:01:00.207265
+Epoch 1:  Batch 21600 - loss: 0.067284
+                100 batches time: 0:00:57.328615
+Epoch 1:  Batch 21700 - loss: 0.058470
+                100 batches time: 0:00:51.575486
+Epoch 1:  Batch 21800 - loss: 0.101925
+                100 batches time: 0:00:54.785494
+Epoch 1:  Batch 21900 - loss: 0.075381
+                100 batches time: 0:00:56.166803
+Epoch 1:  Batch 22000 - loss: 0.070549
+                100 batches time: 0:00:52.135116
+Epoch 1:  Batch 22100 - loss: 0.083009
+                100 batches time: 0:00:51.664124
+Epoch 1:  Batch 22200 - loss: 0.092694
+                100 batches time: 0:00:51.689406
+Epoch 1:  Batch 22300 - loss: 0.074434
+                100 batches time: 0:00:52.994800
+Epoch 1:  Batch 22400 - loss: 0.076355
+                100 batches time: 0:00:51.558169
+Epoch 1:  Batch 22500 - loss: 0.057793
+                100 batches time: 0:00:51.575919
+Epoch 1:  Batch 22600 - loss: 0.085324
+                100 batches time: 0:00:51.671008
+Epoch 1:  Batch 22700 - loss: 0.061588
+                100 batches time: 0:01:07.644713
+Epoch 1:  Batch 22800 - loss: 0.100019
+                100 batches time: 0:00:53.844870
+Epoch 1:  Batch 22900 - loss: 0.079480
+                100 batches time: 0:00:51.593890
+Epoch 1:  Batch 23000 - loss: 0.058568
+                100 batches time: 0:00:51.566563
+Epoch 1:  Batch 23100 - loss: 0.052199
+                100 batches time: 0:00:53.243864
+Epoch 1:  Batch 23200 - loss: 0.109012
+                100 batches time: 0:01:07.394613
+Epoch 1:  Batch 23300 - loss: 0.067390
+                100 batches time: 0:00:52.794984
+Epoch 1:  Batch 23400 - loss: 0.059650
+                100 batches time: 0:00:57.874733
+Epoch 1:  Batch 23500 - loss: 0.112894
+                100 batches time: 0:00:51.623039
+Epoch 1:  Batch 23600 - loss: 0.060163
+                100 batches time: 0:00:51.606760
+Epoch 1:  Batch 23700 - loss: 0.091170
+                100 batches time: 0:01:06.156040
+Epoch 1:  Batch 23800 - loss: 0.082617
+                100 batches time: 0:00:51.609516
+Epoch 1:  Batch 23900 - loss: 0.076649
+                100 batches time: 0:00:53.332340
+Epoch 1:  Batch 24000 - loss: 0.084503
+                100 batches time: 0:00:51.559724
+Epoch 1:  Batch 24100 - loss: 0.076233
+                100 batches time: 0:01:03.042181
+Epoch 1:  Batch 24200 - loss: 0.063285
+                100 batches time: 0:00:51.587332
+Epoch 1:  Batch 24300 - loss: 0.078587
+                100 batches time: 0:00:51.636936
+Epoch 1:  Batch 24400 - loss: 0.064655
+                100 batches time: 0:00:51.641066
+Epoch 1:  Batch 24500 - loss: 0.076112
+                100 batches time: 0:00:52.020470
+Epoch 1:  Batch 24600 - loss: 0.064054
+                100 batches time: 0:01:02.094166
+Epoch 1:  Batch 24700 - loss: 0.082341
+                100 batches time: 0:00:51.576538
+Epoch 1:  Batch 24800 - loss: 0.070647
+                100 batches time: 0:00:51.540123
+Epoch 1:  Batch 24900 - loss: 0.072733
+                100 batches time: 0:00:53.782471
+Epoch 1:  Batch 25000 - loss: 0.067953
+                100 batches time: 0:00:51.520813
+Epoch 1:  Batch 25100 - loss: 0.088364
+                100 batches time: 0:01:02.164497
+Epoch 1:  Batch 25200 - loss: 0.084180
+                100 batches time: 0:00:51.558658
+Epoch 1:  Batch 25300 - loss: 0.068466
+                100 batches time: 0:00:51.599457
+Epoch 1:  Batch 25400 - loss: 0.067898
+                100 batches time: 0:00:51.607497
+Epoch 1:  Batch 25500 - loss: 0.098053
+                100 batches time: 0:00:53.221734
+Epoch 1:  Batch 25600 - loss: 0.093246
+                100 batches time: 0:00:54.675024
+Epoch 1:  Batch 25700 - loss: 0.109277
+                100 batches time: 0:00:52.742372
+Epoch 1:  Batch 25800 - loss: 0.085712
+                100 batches time: 0:00:51.609518
+Epoch 1:  Batch 25900 - loss: 0.057948
+                100 batches time: 0:00:51.580276
+Epoch 1:  Batch 26000 - loss: 0.076344
+                100 batches time: 0:00:54.312702
+Epoch 1:  Batch 26100 - loss: 0.080785
+                100 batches time: 0:00:53.689926
+Epoch 1:  Batch 26200 - loss: 0.066475
+                100 batches time: 0:00:51.546925
+Epoch 1:  Batch 26300 - loss: 0.081503
+                100 batches time: 0:00:53.094355
+Epoch 1:  Batch 26400 - loss: 0.090127
+                100 batches time: 0:00:51.669739
+Epoch 1:  Batch 26500 - loss: 0.058372
+                100 batches time: 0:00:53.748438
+Epoch 1:  Batch 26600 - loss: 0.085890
+                100 batches time: 0:00:56.684286
+Epoch 1:  Batch 26700 - loss: 0.052373
+                100 batches time: 0:00:51.538446
+Epoch 1:  Batch 26800 - loss: 0.129853
+                100 batches time: 0:00:51.524296
+Epoch 1:  Batch 26900 - loss: 0.104764
+                100 batches time: 0:00:51.531102
+Epoch 1:  Batch 27000 - loss: 0.079279
+                100 batches time: 0:01:08.035148
+Epoch 1:  Batch 27100 - loss: 0.101255
+                100 batches time: 0:00:51.517314
+Epoch 1:  Batch 27200 - loss: 0.102894
+                100 batches time: 0:00:51.542894
+Epoch 1:  Batch 27300 - loss: 0.074400
+                100 batches time: 0:01:00.432116
+Epoch 1:  Batch 27400 - loss: 0.077869
+                100 batches time: 0:00:52.363156
+Epoch 1:  Batch 27500 - loss: 0.068942
+                100 batches time: 0:01:01.506294
+Epoch 1:  Batch 27600 - loss: 0.089150
+                100 batches time: 0:00:51.575773
+Epoch 1:  Batch 27700 - loss: 0.122970
+                100 batches time: 0:00:51.813538
+Epoch 1:  Batch 27800 - loss: 0.093554
+                100 batches time: 0:00:51.575700
+Epoch 1:  Batch 27900 - loss: 0.097208
+                100 batches time: 0:01:00.141866
+Epoch 1:  Batch 28000 - loss: 0.074234
+                100 batches time: 0:00:51.973571
+Epoch 1:  Batch 28100 - loss: 0.076638
+                100 batches time: 0:00:53.955372
+Epoch 1:  Batch 28200 - loss: 0.098529
+                100 batches time: 0:00:51.561406
+Epoch 1:  Batch 28300 - loss: 0.067762
+                100 batches time: 0:00:58.344467
+Epoch 1:  Batch 28400 - loss: 0.069468
+                100 batches time: 0:00:53.958263
+Epoch 1:  Batch 28500 - loss: 0.072457
+                100 batches time: 0:00:51.606789
+Epoch 1:  Batch 28600 - loss: 0.068480
+                100 batches time: 0:00:51.606911
+Epoch 1:  Batch 28700 - loss: 0.116108
+                100 batches time: 0:00:57.404848
+Epoch 1:  Batch 28800 - loss: 0.091256
+                100 batches time: 0:00:54.970913
+Epoch 1:  Batch 28900 - loss: 0.073761
+                100 batches time: 0:00:51.640094
+Epoch 1:  Batch 29000 - loss: 0.079643
+                100 batches time: 0:00:51.559488
+Epoch 1:  Batch 29100 - loss: 0.078490
+                100 batches time: 0:01:05.790442
+Epoch 1:  Batch 29200 - loss: 0.094686
+                100 batches time: 0:00:51.506772
+Epoch 1:  Batch 29300 - loss: 0.116827
+                100 batches time: 0:00:51.566017
+Epoch 1:  Batch 29400 - loss: 0.092486
+                100 batches time: 0:00:51.938358
+Epoch 1:  Batch 29500 - loss: 0.106888
+                100 batches time: 0:01:02.903303
+Epoch 1:  Batch 29600 - loss: 0.071762
+                100 batches time: 0:00:51.211788
+Epoch 1:  Batch 29700 - loss: 0.061136
+                100 batches time: 0:00:51.107018
+Epoch 1:  Batch 29800 - loss: 0.074003
+                100 batches time: 0:00:51.120255
+Epoch 1:  Batch 29900 - loss: 0.110511
+                100 batches time: 0:00:53.521844
+Epoch 1:  Batch 30000 - loss: 0.084621
+                100 batches time: 0:00:53.619873
+Epoch 1:  Batch 30100 - loss: 0.077849
+                100 batches time: 0:00:51.050388
+Epoch 1:  Batch 30200 - loss: 0.145351
+                100 batches time: 0:00:51.047594
+Epoch 1:  Batch 30300 - loss: 0.097872
+                100 batches time: 0:00:51.051830
+Epoch 1:  Batch 30400 - loss: 0.096555
+                100 batches time: 0:00:58.891909
+Epoch 1:  Batch 30500 - loss: 0.054503
+                100 batches time: 0:00:51.030720
+Epoch 1:  Batch 30600 - loss: 0.097346
+                100 batches time: 0:00:51.017386
+Epoch 1:  Batch 30700 - loss: 0.090051
+                100 batches time: 0:00:51.008710
+Epoch 1:  Batch 30800 - loss: 0.055211
+                100 batches time: 0:00:51.021154
+Epoch 1:  Batch 30900 - loss: 0.110007
+                100 batches time: 0:00:56.065811
+Epoch 1:  Batch 31000 - loss: 0.116284
+                100 batches time: 0:00:51.073580
+Epoch 1:  Batch 31100 - loss: 0.083590
+                100 batches time: 0:00:51.016411
+Epoch 1:  Batch 31200 - loss: 0.106970
+                100 batches time: 0:00:53.278480
+Epoch 1:  Batch 31300 - loss: 0.074961
+                100 batches time: 0:00:55.399761
+Epoch 1:  Batch 31400 - loss: 0.071990
+                100 batches time: 0:00:51.016376
+Epoch 1:  Batch 31500 - loss: 0.078885
+                100 batches time: 0:00:51.024402
+Epoch 1:  Batch 31600 - loss: 0.112403
+                100 batches time: 0:00:51.013782
+Epoch 1:  Batch 31700 - loss: 0.062296
+                100 batches time: 0:00:55.486335
+Epoch 1:  Batch 31800 - loss: 0.081010
+                100 batches time: 0:01:01.022907
+Epoch 1:  Batch 31900 - loss: 0.090218
+                100 batches time: 0:00:51.526042
+Epoch 1:  Batch 32000 - loss: 0.095342
+                100 batches time: 0:00:51.614672
+Epoch 1/5 - avg loss: 0.087865
+Starting epoch = 2
+Epoch 2:  Batch 100 - loss: 0.070458
+                100 batches time: 0:00:52.445653
+Epoch 2:  Batch 200 - loss: 0.079695
+                100 batches time: 0:00:55.657201
+Epoch 2:  Batch 300 - loss: 0.089234
+                100 batches time: 0:00:55.249296
+Epoch 2:  Batch 400 - loss: 0.070514
+                100 batches time: 0:00:51.600276
+Epoch 2:  Batch 500 - loss: 0.087585
+                100 batches time: 0:00:51.771624
+Epoch 2:  Batch 600 - loss: 0.097655
+                100 batches time: 0:00:51.848559
+Epoch 2:  Batch 700 - loss: 0.088290
+                100 batches time: 0:00:55.197076
+Epoch 2:  Batch 800 - loss: 0.074095
+                100 batches time: 0:00:51.595042
+Epoch 2:  Batch 900 - loss: 0.059376
+                100 batches time: 0:00:51.584855
+Epoch 2:  Batch 1000 - loss: 0.072942
+                100 batches time: 0:00:51.598891
+Epoch 2:  Batch 1100 - loss: 0.130693
+                100 batches time: 0:00:54.889186
+Epoch 2:  Batch 1200 - loss: 0.081971
+                100 batches time: 0:00:51.587944
+Epoch 2:  Batch 1300 - loss: 0.075547
+                100 batches time: 0:00:59.363593
+Epoch 2:  Batch 1400 - loss: 0.075698
+                100 batches time: 0:00:51.572421
+Epoch 2:  Batch 1500 - loss: 0.078343
+                100 batches time: 0:00:52.814430
+Epoch 2:  Batch 1600 - loss: 0.090815
+                100 batches time: 0:00:52.918352
+Epoch 2:  Batch 1700 - loss: 0.083002
+                100 batches time: 0:00:52.332455
+Epoch 2:  Batch 1800 - loss: 0.093124
+                100 batches time: 0:00:51.536212
+Epoch 2:  Batch 1900 - loss: 0.067888
+                100 batches time: 0:00:51.580952
+Epoch 2:  Batch 2000 - loss: 0.089973
+                100 batches time: 0:00:55.709346
+Epoch 2:  Batch 2100 - loss: 0.075485
+                100 batches time: 0:00:55.564803
+Epoch 2:  Batch 2200 - loss: 0.092543
+                100 batches time: 0:00:55.759765
+Epoch 2:  Batch 2300 - loss: 0.093799
+                100 batches time: 0:00:51.639218
+Epoch 2:  Batch 2400 - loss: 0.082808
+                100 batches time: 0:00:53.474281
+Epoch 2:  Batch 2500 - loss: 0.072647
+                100 batches time: 0:00:51.618188
+Epoch 2:  Batch 2600 - loss: 0.080236
+                100 batches time: 0:00:51.652995
+Epoch 2:  Batch 2700 - loss: 0.071569
+                100 batches time: 0:00:51.616533
+Epoch 2:  Batch 2800 - loss: 0.081130
+                100 batches time: 0:00:55.229454
+Epoch 2:  Batch 2900 - loss: 0.077626
+                100 batches time: 0:00:51.581579
+Epoch 2:  Batch 3000 - loss: 0.077660
+                100 batches time: 0:00:51.614722
+Epoch 2:  Batch 3100 - loss: 0.066314
+                100 batches time: 0:00:51.637033
+Epoch 2:  Batch 3200 - loss: 0.079811
+                100 batches time: 0:00:58.873261
+Epoch 2:  Batch 3300 - loss: 0.079191
+                100 batches time: 0:00:51.507135
+Epoch 2:  Batch 3400 - loss: 0.076898
+                100 batches time: 0:00:56.028417
+Epoch 2:  Batch 3500 - loss: 0.068156
+                100 batches time: 0:00:51.525636
+Epoch 2:  Batch 3600 - loss: 0.083481
+                100 batches time: 0:00:52.874375
+Epoch 2:  Batch 3700 - loss: 0.076014
+                100 batches time: 0:00:52.804248
+Epoch 2:  Batch 3800 - loss: 0.073516
+                100 batches time: 0:00:51.642507
+Epoch 2:  Batch 3900 - loss: 0.090801
+                100 batches time: 0:00:51.601407
+Epoch 2:  Batch 4000 - loss: 0.108424
+                100 batches time: 0:00:51.560336
+Epoch 2:  Batch 4100 - loss: 0.107045
+                100 batches time: 0:00:52.280515
+Epoch 2:  Batch 4200 - loss: 0.077001
+                100 batches time: 0:00:53.965798
+Epoch 2:  Batch 4300 - loss: 0.115563
+                100 batches time: 0:00:51.606649
+Epoch 2:  Batch 4400 - loss: 0.124438
+                100 batches time: 0:00:51.607198
+Epoch 2:  Batch 4500 - loss: 0.073409
+                100 batches time: 0:00:51.612302
+Epoch 2:  Batch 4600 - loss: 0.080078
+                100 batches time: 0:00:55.443303
+Epoch 2:  Batch 4700 - loss: 0.076107
+                100 batches time: 0:00:51.580427
+Epoch 2:  Batch 4800 - loss: 0.088667
+                100 batches time: 0:00:56.288362
+Epoch 2:  Batch 4900 - loss: 0.080550
+                100 batches time: 0:00:51.603555
+Epoch 2:  Batch 5000 - loss: 0.076668
+                100 batches time: 0:00:51.577596
+Epoch 2:  Batch 5100 - loss: 0.075071
+                100 batches time: 0:00:54.685135
+Epoch 2:  Batch 5200 - loss: 0.082879
+                100 batches time: 0:00:51.523390
+Epoch 2:  Batch 5300 - loss: 0.078682
+                100 batches time: 0:00:57.279041
+Epoch 2:  Batch 5400 - loss: 0.072513
+                100 batches time: 0:00:52.681849
+Epoch 2:  Batch 5500 - loss: 0.083838
+                100 batches time: 0:00:51.531995
+Epoch 2:  Batch 5600 - loss: 0.093757
+                100 batches time: 0:00:57.228614
+Epoch 2:  Batch 5700 - loss: 0.090847
+                100 batches time: 0:00:51.567491
+Epoch 2:  Batch 5800 - loss: 0.099606
+                100 batches time: 0:00:51.556253
+Epoch 2:  Batch 5900 - loss: 0.078166
+                100 batches time: 0:00:51.541083
+Epoch 2:  Batch 6000 - loss: 0.111037
+                100 batches time: 0:00:52.105040
+Epoch 2:  Batch 6100 - loss: 0.066836
+                100 batches time: 0:00:54.459987
+Epoch 2:  Batch 6200 - loss: 0.069459
+                100 batches time: 0:00:57.465329
+Epoch 2:  Batch 6300 - loss: 0.056635
+                100 batches time: 0:01:01.481112
+Epoch 2:  Batch 6400 - loss: 0.074051
+                100 batches time: 0:01:02.378822
+Epoch 2:  Batch 6500 - loss: 0.091580
+                100 batches time: 0:00:51.500741
+Epoch 2:  Batch 6600 - loss: 0.076627
+                100 batches time: 0:00:51.510754
+Epoch 2:  Batch 6700 - loss: 0.067808
+                100 batches time: 0:00:51.607326
+Epoch 2:  Batch 6800 - loss: 0.063508
+                100 batches time: 0:00:58.672594
+Epoch 2:  Batch 6900 - loss: 0.077730
+                100 batches time: 0:00:55.047971
+Epoch 2:  Batch 7000 - loss: 0.087499
+                100 batches time: 0:00:51.567437
+Epoch 2:  Batch 7100 - loss: 0.094915
+                100 batches time: 0:00:53.534076
+Epoch 2:  Batch 7200 - loss: 0.084333
+                100 batches time: 0:00:51.367786
+Epoch 2:  Batch 7300 - loss: 0.082738
+                100 batches time: 0:00:52.973917
+Epoch 2:  Batch 7400 - loss: 0.071432
+                100 batches time: 0:00:51.523704
+Epoch 2:  Batch 7500 - loss: 0.127718
+                100 batches time: 0:00:53.115053
+Epoch 2:  Batch 7600 - loss: 0.105815
+                100 batches time: 0:00:56.610925
+Epoch 2:  Batch 7700 - loss: 0.118046
+                100 batches time: 0:00:51.505522
+Epoch 2:  Batch 7800 - loss: 0.081190
+                100 batches time: 0:00:51.535411
+Epoch 2:  Batch 7900 - loss: 0.078656
+                100 batches time: 0:00:51.517511
+Epoch 2:  Batch 8000 - loss: 0.094025
+                100 batches time: 0:00:51.555943
+Epoch 2:  Batch 8100 - loss: 0.085478
+                100 batches time: 0:00:54.569193
+Epoch 2:  Batch 8200 - loss: 0.077040
+                100 batches time: 0:00:51.560538
+Epoch 2:  Batch 8300 - loss: 0.069735
+                100 batches time: 0:00:51.588519
+Epoch 2:  Batch 8400 - loss: 0.082877
+                100 batches time: 0:00:59.563095
+Epoch 2:  Batch 8500 - loss: 0.078005
+                100 batches time: 0:00:51.512865
+Epoch 2:  Batch 8600 - loss: 0.091987
+                100 batches time: 0:00:51.556049
+Epoch 2:  Batch 8700 - loss: 0.068696
+                100 batches time: 0:00:51.609650
+Epoch 2:  Batch 8800 - loss: 0.064166
+                100 batches time: 0:00:57.192182
+Epoch 2:  Batch 8900 - loss: 0.074880
+                100 batches time: 0:00:53.894894
+Epoch 2:  Batch 9000 - loss: 0.062461
+                100 batches time: 0:00:51.625109
+Epoch 2:  Batch 9100 - loss: 0.081566
+                100 batches time: 0:00:51.601192
+Epoch 2:  Batch 9200 - loss: 0.076621
+                100 batches time: 0:00:51.572439
+Epoch 2:  Batch 9300 - loss: 0.085617
+                100 batches time: 0:00:53.823347
+Epoch 2:  Batch 9400 - loss: 0.094859
+                100 batches time: 0:00:52.090003
+Epoch 2:  Batch 9500 - loss: 0.073434
+                100 batches time: 0:00:51.483504
+Epoch 2:  Batch 9600 - loss: 0.096328
+                100 batches time: 0:00:51.485729
+Epoch 2:  Batch 9700 - loss: 0.075804
+                100 batches time: 0:00:52.463805
+Epoch 2:  Batch 9800 - loss: 0.079962
+                100 batches time: 0:00:54.312771
+Epoch 2:  Batch 9900 - loss: 0.102279
+                100 batches time: 0:00:57.063654
+Epoch 2:  Batch 10000 - loss: 0.068851
+                100 batches time: 0:00:51.825692
+Epoch 2:  Batch 10100 - loss: 0.096173
+                100 batches time: 0:00:51.566064
+Epoch 2:  Batch 10200 - loss: 0.068254
+                100 batches time: 0:00:55.073113
+Epoch 2:  Batch 10300 - loss: 0.077179
+                100 batches time: 0:00:58.075849
+Epoch 2:  Batch 10400 - loss: 0.063125
+                100 batches time: 0:00:59.062901
+Epoch 2:  Batch 10500 - loss: 0.092643
+                100 batches time: 0:00:51.537718
+Epoch 2:  Batch 10600 - loss: 0.078429
+                100 batches time: 0:01:01.040084
+Epoch 2:  Batch 10700 - loss: 0.086976
+                100 batches time: 0:00:53.285217
+Epoch 2:  Batch 10800 - loss: 0.120433
+                100 batches time: 0:00:51.642148
+Epoch 2:  Batch 10900 - loss: 0.084563
+                100 batches time: 0:00:51.661655
+Epoch 2:  Batch 11000 - loss: 0.067919
+                100 batches time: 0:00:51.629117
+Epoch 2:  Batch 11100 - loss: 0.100185
+                100 batches time: 0:00:53.173450
+Epoch 2:  Batch 11200 - loss: 0.060299
+                100 batches time: 0:00:51.576395
+Epoch 2:  Batch 11300 - loss: 0.071701
+                100 batches time: 0:00:51.542010
+Epoch 2:  Batch 11400 - loss: 0.067388
+                100 batches time: 0:00:51.511731
+Epoch 2:  Batch 11500 - loss: 0.098417
+                100 batches time: 0:00:53.142402
+Epoch 2:  Batch 11600 - loss: 0.079821
+                100 batches time: 0:00:51.544654
+Epoch 2:  Batch 11700 - loss: 0.093877
+                100 batches time: 0:00:51.598392
+Epoch 2:  Batch 11800 - loss: 0.078358
+                100 batches time: 0:00:51.557467
+Epoch 2:  Batch 11900 - loss: 0.090582
+                100 batches time: 0:01:02.131585
+Epoch 2:  Batch 12000 - loss: 0.067899
+                100 batches time: 0:00:51.475399
+Epoch 2:  Batch 12100 - loss: 0.088539
+                100 batches time: 0:00:51.520052
+Epoch 2:  Batch 12200 - loss: 0.075927
+                100 batches time: 0:00:51.658560
+Epoch 2:  Batch 12300 - loss: 0.093147
+                100 batches time: 0:01:00.100798
+Epoch 2:  Batch 12400 - loss: 0.074614
+                100 batches time: 0:00:51.530044
+Epoch 2:  Batch 12500 - loss: 0.091943
+                100 batches time: 0:00:51.556310
+Epoch 2:  Batch 12600 - loss: 0.076020
+                100 batches time: 0:00:51.534958
+Epoch 2:  Batch 12700 - loss: 0.093654
+                100 batches time: 0:01:03.026718
+Epoch 2:  Batch 12800 - loss: 0.068156
+                100 batches time: 0:00:51.524548
+Epoch 2:  Batch 12900 - loss: 0.077554
+                100 batches time: 0:00:51.588988
+Epoch 2:  Batch 13000 - loss: 0.103058
+                100 batches time: 0:00:51.570788
+Epoch 2:  Batch 13100 - loss: 0.088674
+                100 batches time: 0:00:53.585978
+Epoch 2:  Batch 13200 - loss: 0.061600
+                100 batches time: 0:00:58.859784
+Epoch 2:  Batch 13300 - loss: 0.074291
+                100 batches time: 0:00:51.564404
+Epoch 2:  Batch 13400 - loss: 0.083807
+                100 batches time: 0:00:51.564180
+Epoch 2:  Batch 13500 - loss: 0.080617
+                100 batches time: 0:00:51.585805
+Epoch 2:  Batch 13600 - loss: 0.082983
+                100 batches time: 0:00:59.164386
+Epoch 2:  Batch 13700 - loss: 0.090058
+                100 batches time: 0:00:51.983845
+Epoch 2:  Batch 13800 - loss: 0.069147
+                100 batches time: 0:00:51.503947
+Epoch 2:  Batch 13900 - loss: 0.082195
+                100 batches time: 0:00:53.861222
+Epoch 2:  Batch 14000 - loss: 0.096151
+                100 batches time: 0:00:51.831490
+Epoch 2:  Batch 14100 - loss: 0.071431
+                100 batches time: 0:00:51.530249
+Epoch 2:  Batch 14200 - loss: 0.073903
+                100 batches time: 0:00:51.585948
+Epoch 2:  Batch 14300 - loss: 0.063296
+                100 batches time: 0:00:52.169883
+Epoch 2:  Batch 14400 - loss: 0.060107
+                100 batches time: 0:01:03.177886
+Epoch 2:  Batch 14500 - loss: 0.068244
+                100 batches time: 0:00:51.490325
+Epoch 2:  Batch 14600 - loss: 0.087726
+                100 batches time: 0:00:51.503161
+Epoch 2:  Batch 14700 - loss: 0.097788
+                100 batches time: 0:00:56.862866
+Epoch 2:  Batch 14800 - loss: 0.094573
+                100 batches time: 0:00:51.527585
+Epoch 2:  Batch 14900 - loss: 0.064116
+                100 batches time: 0:00:58.197057
+Epoch 2:  Batch 15000 - loss: 0.070955
+                100 batches time: 0:00:52.100594
+Epoch 2:  Batch 15100 - loss: 0.068394
+                100 batches time: 0:00:51.542589
+Epoch 2:  Batch 15200 - loss: 0.070932
+                100 batches time: 0:00:59.616250
+Epoch 2:  Batch 15300 - loss: 0.080475
+                100 batches time: 0:00:53.431189
+Epoch 2:  Batch 15400 - loss: 0.097436
+                100 batches time: 0:00:51.582532
+Epoch 2:  Batch 15500 - loss: 0.073819
+                100 batches time: 0:00:51.589727
+Epoch 2:  Batch 15600 - loss: 0.097085
+                100 batches time: 0:00:57.493707
+Epoch 2:  Batch 15700 - loss: 0.062319
+                100 batches time: 0:00:51.577302
+Epoch 2:  Batch 15800 - loss: 0.067583
+                100 batches time: 0:00:51.600794
+Epoch 2:  Batch 15900 - loss: 0.072126
+                100 batches time: 0:00:51.567463
+Epoch 2:  Batch 16000 - loss: 0.085979
+                100 batches time: 0:00:59.970687
+Epoch 2:  Batch 16100 - loss: 0.075591
+                100 batches time: 0:00:51.544018
+Epoch 2:  Batch 16200 - loss: 0.093367
+                100 batches time: 0:00:51.550004
+Epoch 2:  Batch 16300 - loss: 0.081466
+                100 batches time: 0:00:58.783102
+Epoch 2:  Batch 16400 - loss: 0.070309
+                100 batches time: 0:00:51.513355
+Epoch 2:  Batch 16500 - loss: 0.092084
+                100 batches time: 0:00:51.536480
+Epoch 2:  Batch 16600 - loss: 0.086054
+                100 batches time: 0:00:51.537881
+Epoch 2:  Batch 16700 - loss: 0.060843
+                100 batches time: 0:00:54.888647
+Epoch 2:  Batch 16800 - loss: 0.074819
+                100 batches time: 0:00:53.895563
+Epoch 2:  Batch 16900 - loss: 0.065262
+                100 batches time: 0:00:51.530022
+Epoch 2:  Batch 17000 - loss: 0.084148
+                100 batches time: 0:00:51.570434
+Epoch 2:  Batch 17100 - loss: 0.064586
+                100 batches time: 0:01:04.223249
+Epoch 2:  Batch 17200 - loss: 0.085321
+                100 batches time: 0:00:51.552109
+Epoch 2:  Batch 17300 - loss: 0.114267
+                100 batches time: 0:00:51.561804
+Epoch 2:  Batch 17400 - loss: 0.093316
+                100 batches time: 0:00:52.843002
+Epoch 2:  Batch 17500 - loss: 0.105858
+                100 batches time: 0:00:53.232826
+Epoch 2:  Batch 17600 - loss: 0.057899
+                100 batches time: 0:00:51.552559
+Epoch 2:  Batch 17700 - loss: 0.081711
+                100 batches time: 0:00:52.477422
+Epoch 2:  Batch 17800 - loss: 0.094345
+                100 batches time: 0:00:51.608235
+Epoch 2:  Batch 17900 - loss: 0.100403
+                100 batches time: 0:00:53.824996
+Epoch 2:  Batch 18000 - loss: 0.079608
+                100 batches time: 0:00:53.190493
+Epoch 2:  Batch 18100 - loss: 0.059353
+                100 batches time: 0:00:52.735880
+Epoch 2:  Batch 18200 - loss: 0.064324
+                100 batches time: 0:00:51.549269
+Epoch 2:  Batch 18300 - loss: 0.106559
+                100 batches time: 0:00:55.345840
+Epoch 2:  Batch 18400 - loss: 0.092290
+                100 batches time: 0:00:53.539654
+Epoch 2:  Batch 18500 - loss: 0.061322
+                100 batches time: 0:00:51.537820
+Epoch 2:  Batch 18600 - loss: 0.093093
+                100 batches time: 0:00:51.618259
+Epoch 2:  Batch 18700 - loss: 0.071752
+                100 batches time: 0:01:00.953477
+Epoch 2:  Batch 18800 - loss: 0.070391
+                100 batches time: 0:00:51.485310
+Epoch 2:  Batch 18900 - loss: 0.101327
+                100 batches time: 0:00:51.475590
+Epoch 2:  Batch 19000 - loss: 0.119221
+                100 batches time: 0:00:51.510550
+Epoch 2:  Batch 19100 - loss: 0.068569
+                100 batches time: 0:01:04.072089
+Epoch 2:  Batch 19200 - loss: 0.099263
+                100 batches time: 0:00:51.594297
+Epoch 2:  Batch 19300 - loss: 0.077814
+                100 batches time: 0:00:51.621847
+Epoch 2:  Batch 19400 - loss: 0.062919
+                100 batches time: 0:00:55.787923
+Epoch 2:  Batch 19500 - loss: 0.133026
+                100 batches time: 0:00:51.578492
+Epoch 2:  Batch 19600 - loss: 0.069585
+                100 batches time: 0:00:51.598335
+Epoch 2:  Batch 19700 - loss: 0.076235
+                100 batches time: 0:00:51.620847
+Epoch 2:  Batch 19800 - loss: 0.082822
+                100 batches time: 0:00:52.516797
+Epoch 2:  Batch 19900 - loss: 0.077521
+                100 batches time: 0:00:55.182424
+Epoch 2:  Batch 20000 - loss: 0.078434
+                100 batches time: 0:00:51.580389
+Epoch 2:  Batch 20100 - loss: 0.076641
+                100 batches time: 0:00:52.524155
+Epoch 2:  Batch 20200 - loss: 0.081844
+                100 batches time: 0:01:04.830601
+Epoch 2:  Batch 20300 - loss: 0.076981
+                100 batches time: 0:00:51.496001
+Epoch 2:  Batch 20400 - loss: 0.054585
+                100 batches time: 0:00:51.532469
+Epoch 2:  Batch 20500 - loss: 0.108629
+                100 batches time: 0:00:51.573608
+Epoch 2:  Batch 20600 - loss: 0.062505
+                100 batches time: 0:01:01.330055
+Epoch 2:  Batch 20700 - loss: 0.076623
+                100 batches time: 0:00:51.476648
+Epoch 2:  Batch 20800 - loss: 0.092535
+                100 batches time: 0:00:51.516163
+Epoch 2:  Batch 20900 - loss: 0.087055
+                100 batches time: 0:00:51.585192
+Epoch 2:  Batch 21000 - loss: 0.073271
+                100 batches time: 0:00:59.630991
+Epoch 2:  Batch 21100 - loss: 0.070246
+                100 batches time: 0:00:51.539572
+Epoch 2:  Batch 21200 - loss: 0.089949
+                100 batches time: 0:00:51.516297
+Epoch 2:  Batch 21300 - loss: 0.073304
+                100 batches time: 0:00:51.536158
+Epoch 2:  Batch 21400 - loss: 0.071338
+                100 batches time: 0:01:05.472812
+Epoch 2:  Batch 21500 - loss: 0.127096
+                100 batches time: 0:00:51.585391
+Epoch 2:  Batch 21600 - loss: 0.053517
+                100 batches time: 0:00:51.599453
+Epoch 2:  Batch 21700 - loss: 0.072505
+                100 batches time: 0:00:51.747236
+Epoch 2:  Batch 21800 - loss: 0.076246
+                100 batches time: 0:00:58.177044
+Epoch 2:  Batch 21900 - loss: 0.084356
+                100 batches time: 0:00:51.523763
+Epoch 2:  Batch 22000 - loss: 0.067282
+                100 batches time: 0:00:51.586137
+Epoch 2:  Batch 22100 - loss: 0.061386
+                100 batches time: 0:00:51.552804
+Epoch 2:  Batch 22200 - loss: 0.072096
+                100 batches time: 0:01:00.054407
+Epoch 2:  Batch 22300 - loss: 0.073851
+                100 batches time: 0:00:51.482926
+Epoch 2:  Batch 22400 - loss: 0.088385
+                100 batches time: 0:00:51.457155
+Epoch 2:  Batch 22500 - loss: 0.054829
+                100 batches time: 0:00:51.446074
+Epoch 2:  Batch 22600 - loss: 0.086171
+                100 batches time: 0:00:51.773654
+Epoch 2:  Batch 22700 - loss: 0.084005
+                100 batches time: 0:00:51.480613
+Epoch 2:  Batch 22800 - loss: 0.077443
+                100 batches time: 0:00:51.503966
+Epoch 2:  Batch 22900 - loss: 0.067770
+                100 batches time: 0:00:51.484309
+Epoch 2:  Batch 23000 - loss: 0.081107
+                100 batches time: 0:00:51.505368
+Epoch 2:  Batch 23100 - loss: 0.076447
+                100 batches time: 0:00:53.404361
+Epoch 2:  Batch 23200 - loss: 0.094056
+                100 batches time: 0:00:53.529201
+Epoch 2:  Batch 23300 - loss: 0.073121
+                100 batches time: 0:00:53.579065
+Epoch 2:  Batch 23400 - loss: 0.067955
+                100 batches time: 0:00:52.650300
+Epoch 2:  Batch 23500 - loss: 0.092436
+                100 batches time: 0:00:58.116466
+Epoch 2:  Batch 23600 - loss: 0.076995
+                100 batches time: 0:00:51.487310
+Epoch 2:  Batch 23700 - loss: 0.077676
+                100 batches time: 0:00:51.514690
+Epoch 2:  Batch 23800 - loss: 0.074680
+                100 batches time: 0:00:51.522345
+Epoch 2:  Batch 23900 - loss: 0.080613
+                100 batches time: 0:00:58.070503
+Epoch 2:  Batch 24000 - loss: 0.064311
+                100 batches time: 0:01:04.656192
+Epoch 2:  Batch 24100 - loss: 0.070832
+                100 batches time: 0:00:51.457840
+Epoch 2:  Batch 24200 - loss: 0.077447
+                100 batches time: 0:00:51.460617
+Epoch 2:  Batch 24300 - loss: 0.070082
+                100 batches time: 0:00:55.954595
+Epoch 2:  Batch 24400 - loss: 0.069238
+                100 batches time: 0:00:51.479312
+Epoch 2:  Batch 24500 - loss: 0.108520
+                100 batches time: 0:00:51.510299
+Epoch 2:  Batch 24600 - loss: 0.074798
+                100 batches time: 0:00:51.527863
+Epoch 2:  Batch 24700 - loss: 0.098912
+                100 batches time: 0:00:56.678306
+Epoch 2:  Batch 24800 - loss: 0.118015
+                100 batches time: 0:00:52.655670
+Epoch 2:  Batch 24900 - loss: 0.083753
+                100 batches time: 0:00:51.494778
+Epoch 2:  Batch 25000 - loss: 0.078020
+                100 batches time: 0:00:51.527843
+Epoch 2:  Batch 25100 - loss: 0.080169
+                100 batches time: 0:00:56.057975
+Epoch 2:  Batch 25200 - loss: 0.106002
+                100 batches time: 0:00:53.927687
+Epoch 2:  Batch 25300 - loss: 0.051763
+                100 batches time: 0:00:51.497309
+Epoch 2:  Batch 25400 - loss: 0.058817
+                100 batches time: 0:00:51.579825
+Epoch 2:  Batch 25500 - loss: 0.094642
+                100 batches time: 0:01:02.243138
+Epoch 2:  Batch 25600 - loss: 0.073837
+                100 batches time: 0:00:51.491202
+Epoch 2:  Batch 25700 - loss: 0.069778
+                100 batches time: 0:00:51.529331
+Epoch 2:  Batch 25800 - loss: 0.056172
+                100 batches time: 0:00:51.532704
+Epoch 2:  Batch 25900 - loss: 0.074446
+                100 batches time: 0:01:05.074764
+Epoch 2:  Batch 26000 - loss: 0.078381
+                100 batches time: 0:00:51.538493
+Epoch 2:  Batch 26100 - loss: 0.080069
+                100 batches time: 0:00:51.556247
+Epoch 2:  Batch 26200 - loss: 0.068062
+                100 batches time: 0:00:52.885229
+Epoch 2:  Batch 26300 - loss: 0.071914
+                100 batches time: 0:00:51.532032
+Epoch 2:  Batch 26400 - loss: 0.079249
+                100 batches time: 0:00:51.516258
+Epoch 2:  Batch 26500 - loss: 0.097380
+                100 batches time: 0:00:51.496836
+Epoch 2:  Batch 26600 - loss: 0.100768
+                100 batches time: 0:00:51.531343
+Epoch 2:  Batch 26700 - loss: 0.060396
+                100 batches time: 0:00:56.378685
+Epoch 2:  Batch 26800 - loss: 0.079354
+                100 batches time: 0:00:51.505601
+Epoch 2:  Batch 26900 - loss: 0.073151
+                100 batches time: 0:00:51.524835
+Epoch 2:  Batch 27000 - loss: 0.065673
+                100 batches time: 0:01:04.360406
+Epoch 2:  Batch 27100 - loss: 0.078698
+                100 batches time: 0:00:51.447345
+Epoch 2:  Batch 27200 - loss: 0.073964
+                100 batches time: 0:00:51.463461
+Epoch 2:  Batch 27300 - loss: 0.065506
+                100 batches time: 0:00:51.482959
+Epoch 2:  Batch 27400 - loss: 0.073664
+                100 batches time: 0:00:57.945701
+Epoch 2:  Batch 27500 - loss: 0.097453
+                100 batches time: 0:00:51.503325
+Epoch 2:  Batch 27600 - loss: 0.070712
+                100 batches time: 0:00:51.536482
+Epoch 2:  Batch 27700 - loss: 0.083051
+                100 batches time: 0:00:51.560601
+Epoch 2:  Batch 27800 - loss: 0.081984
+                100 batches time: 0:00:57.748053
+Epoch 2:  Batch 27900 - loss: 0.064239
+                100 batches time: 0:00:51.451179
+Epoch 2:  Batch 28000 - loss: 0.096273
+                100 batches time: 0:00:51.443295
+Epoch 2:  Batch 28100 - loss: 0.100778
+                100 batches time: 0:00:51.466776
+Epoch 2:  Batch 28200 - loss: 0.060523
+                100 batches time: 0:00:54.153599
+Epoch 2:  Batch 28300 - loss: 0.094296
+                100 batches time: 0:00:51.535659
+Epoch 2:  Batch 28400 - loss: 0.053913
+                100 batches time: 0:00:51.556798
+Epoch 2:  Batch 28500 - loss: 0.075429
+                100 batches time: 0:00:51.556179
+Epoch 2:  Batch 28600 - loss: 0.107194
+                100 batches time: 0:01:00.614530
+Epoch 2:  Batch 28700 - loss: 0.086453
+                100 batches time: 0:00:51.555975
+Epoch 2:  Batch 28800 - loss: 0.077738
+                100 batches time: 0:00:51.540678
+Epoch 2:  Batch 28900 - loss: 0.067010
+                100 batches time: 0:01:02.381807
+Epoch 2:  Batch 29000 - loss: 0.069812
+                100 batches time: 0:00:51.496364
+Epoch 2:  Batch 29100 - loss: 0.055586
+                100 batches time: 0:00:51.506490
+Epoch 2:  Batch 29200 - loss: 0.070342
+                100 batches time: 0:00:51.506132
+Epoch 2:  Batch 29300 - loss: 0.086015
+                100 batches time: 0:00:55.773584
+Epoch 2:  Batch 29400 - loss: 0.087214
+                100 batches time: 0:00:51.486668
+Epoch 2:  Batch 29500 - loss: 0.066695
+                100 batches time: 0:00:51.508670
+Epoch 2:  Batch 29600 - loss: 0.076833
+                100 batches time: 0:00:51.501685
+Epoch 2:  Batch 29700 - loss: 0.054230
+                100 batches time: 0:00:57.070813
+Epoch 2:  Batch 29800 - loss: 0.069212
+                100 batches time: 0:00:54.090238
+Epoch 2:  Batch 29900 - loss: 0.093991
+                100 batches time: 0:00:51.530852
+Epoch 2:  Batch 30000 - loss: 0.081364
+                100 batches time: 0:00:51.544609
+Epoch 2:  Batch 30100 - loss: 0.077448
+                100 batches time: 0:00:59.600555
+Epoch 2:  Batch 30200 - loss: 0.064429
+                100 batches time: 0:00:51.454904
+Epoch 2:  Batch 30300 - loss: 0.092471
+                100 batches time: 0:00:51.465268
+Epoch 2:  Batch 30400 - loss: 0.099811
+                100 batches time: 0:00:51.498382
+Epoch 2:  Batch 30500 - loss: 0.079413
+                100 batches time: 0:00:59.832684
+Epoch 2:  Batch 30600 - loss: 0.061344
+                100 batches time: 0:00:51.498412
+Epoch 2:  Batch 30700 - loss: 0.071359
+                100 batches time: 0:00:51.494082
+Epoch 2:  Batch 30800 - loss: 0.063141
+                100 batches time: 0:00:51.497980
+Epoch 2:  Batch 30900 - loss: 0.078733
+                100 batches time: 0:00:54.973607
+Epoch 2:  Batch 31000 - loss: 0.076942
+                100 batches time: 0:00:51.548823
+Epoch 2:  Batch 31100 - loss: 0.080460
+                100 batches time: 0:00:51.561439
+Epoch 2:  Batch 31200 - loss: 0.068215
+                100 batches time: 0:00:51.604512
+Epoch 2:  Batch 31300 - loss: 0.068002
+                100 batches time: 0:00:54.150295
+Epoch 2:  Batch 31400 - loss: 0.100284
+                100 batches time: 0:00:51.521529
+Epoch 2:  Batch 31500 - loss: 0.065360
+                100 batches time: 0:00:51.506951
+Epoch 2:  Batch 31600 - loss: 0.065794
+                100 batches time: 0:00:51.523732
+Epoch 2:  Batch 31700 - loss: 0.086262
+                100 batches time: 0:00:58.538199
+Epoch 2:  Batch 31800 - loss: 0.081056
+                100 batches time: 0:00:51.483123
+Epoch 2:  Batch 31900 - loss: 0.077869
+                100 batches time: 0:00:51.477098
+Epoch 2:  Batch 32000 - loss: 0.071174
+                100 batches time: 0:00:51.482906
+Epoch 2/5 - avg loss: 0.081486
+Starting epoch = 3
+Epoch 3:  Batch 100 - loss: 0.078928
+                100 batches time: 0:00:51.922953
+Epoch 3:  Batch 200 - loss: 0.090713
+                100 batches time: 0:00:51.532545
+Epoch 3:  Batch 300 - loss: 0.075176
+                100 batches time: 0:00:51.608722
+Epoch 3:  Batch 400 - loss: 0.063961
+                100 batches time: 0:00:51.593923
+Epoch 3:  Batch 500 - loss: 0.091576
+                100 batches time: 0:00:51.611694
+Epoch 3:  Batch 600 - loss: 0.089675
+                100 batches time: 0:00:51.604261
+Epoch 3:  Batch 700 - loss: 0.089894
+                100 batches time: 0:00:51.610097
+Epoch 3:  Batch 800 - loss: 0.070809
+                100 batches time: 0:00:51.653017
+Epoch 3:  Batch 900 - loss: 0.055399
+                100 batches time: 0:00:51.648100
+Epoch 3:  Batch 1000 - loss: 0.063551
+                100 batches time: 0:00:51.616686
+Epoch 3:  Batch 1100 - loss: 0.063518
+                100 batches time: 0:00:51.545854
+Epoch 3:  Batch 1200 - loss: 0.070116
+                100 batches time: 0:00:51.565186
+Epoch 3:  Batch 1300 - loss: 0.083707
+                100 batches time: 0:00:51.576514
+Epoch 3:  Batch 1400 - loss: 0.082906
+                100 batches time: 0:00:51.562909
+Epoch 3:  Batch 1500 - loss: 0.061802
+                100 batches time: 0:00:51.523097
+Epoch 3:  Batch 1600 - loss: 0.080547
+                100 batches time: 0:00:51.562914
+Epoch 3:  Batch 1700 - loss: 0.072897
+                100 batches time: 0:00:51.581946
+Epoch 3:  Batch 1800 - loss: 0.079812
+                100 batches time: 0:00:51.581667
+Epoch 3:  Batch 1900 - loss: 0.071628
+                100 batches time: 0:00:51.565906
+Epoch 3:  Batch 2000 - loss: 0.080190
+                100 batches time: 0:00:51.550669
+Epoch 3:  Batch 2100 - loss: 0.149968
+                100 batches time: 0:00:51.564717
+Epoch 3:  Batch 2200 - loss: 0.100921
+                100 batches time: 0:00:51.541756
+Epoch 3:  Batch 2300 - loss: 0.061608
+                100 batches time: 0:00:51.536124
+Epoch 3:  Batch 2400 - loss: 0.080883
+                100 batches time: 0:00:51.553153
+Epoch 3:  Batch 2500 - loss: 0.068069
+                100 batches time: 0:00:51.564254
+Epoch 3:  Batch 2600 - loss: 0.083359
+                100 batches time: 0:00:51.603962
+Epoch 3:  Batch 2700 - loss: 0.059444
+                100 batches time: 0:00:51.576632
+Epoch 3:  Batch 2800 - loss: 0.061826
+                100 batches time: 0:00:51.602639
+Epoch 3:  Batch 2900 - loss: 0.065518
+                100 batches time: 0:00:51.590663
+Epoch 3:  Batch 3000 - loss: 0.092572
+                100 batches time: 0:00:51.564198
+Epoch 3:  Batch 3100 - loss: 0.055863
+                100 batches time: 0:00:51.585116
+Epoch 3:  Batch 3200 - loss: 0.068414
+                100 batches time: 0:00:51.556986
+Epoch 3:  Batch 3300 - loss: 0.052793
+                100 batches time: 0:00:52.423599
+Epoch 3:  Batch 3400 - loss: 0.095057
+                100 batches time: 0:00:51.498899
+Epoch 3:  Batch 3500 - loss: 0.094869
+                100 batches time: 0:00:51.495968
+Epoch 3:  Batch 3600 - loss: 0.076500
+                100 batches time: 0:00:51.500145
+Epoch 3:  Batch 3700 - loss: 0.074040
+                100 batches time: 0:00:51.534555
+Epoch 3:  Batch 3800 - loss: 0.091232
+                100 batches time: 0:00:51.523381
+Epoch 3:  Batch 3900 - loss: 0.096413
+                100 batches time: 0:00:51.537422
+Epoch 3:  Batch 4000 - loss: 0.054303
+                100 batches time: 0:00:51.571147
+Epoch 3:  Batch 4100 - loss: 0.075605
+                100 batches time: 0:00:51.569464
+Epoch 3:  Batch 4200 - loss: 0.077614
+                100 batches time: 0:00:51.648560
+Epoch 3:  Batch 4300 - loss: 0.069533
+                100 batches time: 0:00:51.597921
+Epoch 3:  Batch 4400 - loss: 0.077300
+                100 batches time: 0:00:51.574299
+Epoch 3:  Batch 4500 - loss: 0.077506
+                100 batches time: 0:00:51.578786
+Epoch 3:  Batch 4600 - loss: 0.108101
+                100 batches time: 0:00:51.561257
+Epoch 3:  Batch 4700 - loss: 0.063257
+                100 batches time: 0:00:51.553612
+Epoch 3:  Batch 4800 - loss: 0.084759
+                100 batches time: 0:00:51.533224
+Epoch 3:  Batch 4900 - loss: 0.074475
+                100 batches time: 0:00:51.577079
+Epoch 3:  Batch 5000 - loss: 0.106424
+                100 batches time: 0:00:51.559286
+Epoch 3:  Batch 5100 - loss: 0.127058
+                100 batches time: 0:00:54.059924
+Epoch 3:  Batch 5200 - loss: 0.107500
+                100 batches time: 0:00:51.544040
+Epoch 3:  Batch 5300 - loss: 0.121991
+                100 batches time: 0:00:51.546106
+Epoch 3:  Batch 5400 - loss: 0.089556
+                100 batches time: 0:00:51.511501
+Epoch 3:  Batch 5500 - loss: 0.069057
+                100 batches time: 0:00:51.517435
+Epoch 3:  Batch 5600 - loss: 0.113424
+                100 batches time: 0:00:51.548546
+Epoch 3:  Batch 5700 - loss: 0.078703
+                100 batches time: 0:00:53.250937
+Epoch 3:  Batch 5800 - loss: 0.063461
+                100 batches time: 0:00:51.597589
+Epoch 3:  Batch 5900 - loss: 0.078166
+                100 batches time: 0:00:51.625011
+Epoch 3:  Batch 6000 - loss: 0.061410
+                100 batches time: 0:00:51.619455
+Epoch 3:  Batch 6100 - loss: 0.081367
+                100 batches time: 0:00:51.580223
+Epoch 3:  Batch 6200 - loss: 0.111904
+                100 batches time: 0:00:51.583603
+Epoch 3:  Batch 6300 - loss: 0.121800
+                100 batches time: 0:00:54.680042
+Epoch 3:  Batch 6400 - loss: 0.062223
+                100 batches time: 0:00:51.545655
+Epoch 3:  Batch 6500 - loss: 0.075401
+                100 batches time: 0:00:51.539067
+Epoch 3:  Batch 6600 - loss: 0.064458
+                100 batches time: 0:00:55.883830
+Epoch 3:  Batch 6700 - loss: 0.088293
+                100 batches time: 0:00:51.528748
+Epoch 3:  Batch 6800 - loss: 0.073829
+                100 batches time: 0:00:51.537869
+Epoch 3:  Batch 6900 - loss: 0.071513
+                100 batches time: 0:00:51.547944
+Epoch 3:  Batch 7000 - loss: 0.082140
+                100 batches time: 0:00:51.560906
+Epoch 3:  Batch 7100 - loss: 0.114186
+                100 batches time: 0:00:51.578945
+Epoch 3:  Batch 7200 - loss: 0.060106
+                100 batches time: 0:00:51.618047
+Epoch 3:  Batch 7300 - loss: 0.094636
+                100 batches time: 0:00:53.086153
+Epoch 3:  Batch 7400 - loss: 0.072145
+                100 batches time: 0:00:52.390810
+Epoch 3:  Batch 7500 - loss: 0.080886
+                100 batches time: 0:00:51.601332
+Epoch 3:  Batch 7600 - loss: 0.071285
+                100 batches time: 0:00:51.588394
+Epoch 3:  Batch 7700 - loss: 0.075551
+                100 batches time: 0:00:52.208280
+Epoch 3:  Batch 7800 - loss: 0.089351
+                100 batches time: 0:00:51.500838
+Epoch 3:  Batch 7900 - loss: 0.061619
+                100 batches time: 0:00:51.539164
+Epoch 3:  Batch 8000 - loss: 0.077755
+                100 batches time: 0:00:51.529306
+Epoch 3:  Batch 8100 - loss: 0.083451
+                100 batches time: 0:00:51.538379
+Epoch 3:  Batch 8200 - loss: 0.082822
+                100 batches time: 0:00:51.534088
+Epoch 3:  Batch 8300 - loss: 0.077374
+                100 batches time: 0:00:51.549502
+Epoch 3:  Batch 8400 - loss: 0.091653
+                100 batches time: 0:00:51.205102
+Epoch 3:  Batch 8500 - loss: 0.088443
+                100 batches time: 0:00:52.161492
+Epoch 3:  Batch 8600 - loss: 0.067136
+                100 batches time: 0:00:51.478189
+Epoch 3:  Batch 8700 - loss: 0.072422
+                100 batches time: 0:00:51.540833
+Epoch 3:  Batch 8800 - loss: 0.068286
+                100 batches time: 0:00:51.541989
+Epoch 3:  Batch 8900 - loss: 0.069252
+                100 batches time: 0:00:51.564112
+Epoch 3:  Batch 9000 - loss: 0.069419
+                100 batches time: 0:00:51.550205
+Epoch 3:  Batch 9100 - loss: 0.095206
+                100 batches time: 0:00:51.578758
+Epoch 3:  Batch 9200 - loss: 0.061046
+                100 batches time: 0:00:51.593525
+Epoch 3:  Batch 9300 - loss: 0.087108
+                100 batches time: 0:00:51.601488
+Epoch 3:  Batch 9400 - loss: 0.083745
+                100 batches time: 0:00:51.651474
+Epoch 3:  Batch 9500 - loss: 0.068159
+                100 batches time: 0:00:51.625228
+Epoch 3:  Batch 9600 - loss: 0.089749
+                100 batches time: 0:00:51.629901
+Epoch 3:  Batch 9700 - loss: 0.076583
+                100 batches time: 0:00:51.670386
+Epoch 3:  Batch 9800 - loss: 0.088880
+                100 batches time: 0:00:51.679693
+Epoch 3:  Batch 9900 - loss: 0.096237
+                100 batches time: 0:00:51.648415
+Epoch 3:  Batch 10000 - loss: 0.064465
+                100 batches time: 0:00:51.650412
+Epoch 3:  Batch 10100 - loss: 0.078382
+                100 batches time: 0:00:51.669612
+Epoch 3:  Batch 10200 - loss: 0.100558
+                100 batches time: 0:00:52.318063
+Epoch 3:  Batch 10300 - loss: 0.075272
+                100 batches time: 0:00:51.630767
+Epoch 3:  Batch 10400 - loss: 0.066878
+                100 batches time: 0:00:51.615459
+Epoch 3:  Batch 10500 - loss: 0.073057
+                100 batches time: 0:00:51.631894
+Epoch 3:  Batch 10600 - loss: 0.072912
+                100 batches time: 0:00:51.662885
+Epoch 3:  Batch 10700 - loss: 0.102078
+                100 batches time: 0:00:51.638060
+Epoch 3:  Batch 10800 - loss: 0.084293
+                100 batches time: 0:00:51.594583
+Epoch 3:  Batch 10900 - loss: 0.055632
+                100 batches time: 0:00:51.621569
+Epoch 3:  Batch 11000 - loss: 0.092846
+                100 batches time: 0:00:52.631123
+Epoch 3:  Batch 11100 - loss: 0.084477
+                100 batches time: 0:00:51.660772
+Epoch 3:  Batch 11200 - loss: 0.085630
+                100 batches time: 0:00:51.670176
+Epoch 3:  Batch 11300 - loss: 0.072922
+                100 batches time: 0:00:51.670728
+Epoch 3:  Batch 11400 - loss: 0.107310
+                100 batches time: 0:00:51.632505
+Epoch 3:  Batch 11500 - loss: 0.083495
+                100 batches time: 0:00:51.632899
+Epoch 3:  Batch 11600 - loss: 0.096728
+                100 batches time: 0:00:51.635832
+Epoch 3:  Batch 11700 - loss: 0.089323
+                100 batches time: 0:00:53.826205
+Epoch 3:  Batch 11800 - loss: 0.067318
+                100 batches time: 0:00:51.571385
+Epoch 3:  Batch 11900 - loss: 0.124187
+                100 batches time: 0:00:51.572444
+Epoch 3:  Batch 12000 - loss: 0.109032
+                100 batches time: 0:00:51.607218
+Epoch 3:  Batch 12100 - loss: 0.069010
+                100 batches time: 0:00:51.653172
+Epoch 3:  Batch 12200 - loss: 0.075216
+                100 batches time: 0:00:51.631487
+Epoch 3:  Batch 12300 - loss: 0.072904
+                100 batches time: 0:00:51.621694
+Epoch 3:  Batch 12400 - loss: 0.088699
+                100 batches time: 0:00:51.579812
+Epoch 3:  Batch 12500 - loss: 0.106453
+                100 batches time: 0:00:51.550273
+Epoch 3:  Batch 12600 - loss: 0.115056
+                100 batches time: 0:00:51.564449
+Epoch 3:  Batch 12700 - loss: 0.080991
+                100 batches time: 0:00:51.581185
+Epoch 3:  Batch 12800 - loss: 0.066137
+                100 batches time: 0:00:51.568168
+Epoch 3:  Batch 12900 - loss: 0.067325
+                100 batches time: 0:00:51.598017
+Epoch 3:  Batch 13000 - loss: 0.076931
+                100 batches time: 0:00:51.582250
+Epoch 3:  Batch 13100 - loss: 0.098995
+                100 batches time: 0:00:51.607613
+Epoch 3:  Batch 13200 - loss: 0.089978
+                100 batches time: 0:00:51.644671
+Epoch 3:  Batch 13300 - loss: 0.066972
+                100 batches time: 0:00:51.678906
+Epoch 3:  Batch 13400 - loss: 0.058078
+                100 batches time: 0:00:51.644200
+Epoch 3:  Batch 13500 - loss: 0.088983
+                100 batches time: 0:00:51.683531
+Epoch 3:  Batch 13600 - loss: 0.074566
+                100 batches time: 0:00:51.704936
+Epoch 3:  Batch 13700 - loss: 0.098934
+                100 batches time: 0:00:51.706205
+Epoch 3:  Batch 13800 - loss: 0.100343
+                100 batches time: 0:00:51.728655
+Epoch 3:  Batch 13900 - loss: 0.076469
+                100 batches time: 0:00:51.712904
+Epoch 3:  Batch 14000 - loss: 0.073445
+                100 batches time: 0:00:51.766072
+Epoch 3:  Batch 14100 - loss: 0.068545
+                100 batches time: 0:00:52.492622
+Epoch 3:  Batch 14200 - loss: 0.069088
+                100 batches time: 0:00:51.692929
+Epoch 3:  Batch 14300 - loss: 0.081947
+                100 batches time: 0:00:51.678197
+Epoch 3:  Batch 14400 - loss: 0.068673
+                100 batches time: 0:00:51.634094
+Epoch 3:  Batch 14500 - loss: 0.065842
+                100 batches time: 0:00:51.616350
+Epoch 3:  Batch 14600 - loss: 0.067691
+                100 batches time: 0:00:51.590122
+Epoch 3:  Batch 14700 - loss: 0.067410
+                100 batches time: 0:00:51.593981
+Epoch 3:  Batch 14800 - loss: 0.086388
+                100 batches time: 0:00:51.629895
+Epoch 3:  Batch 14900 - loss: 0.073582
+                100 batches time: 0:00:51.590924
+Epoch 3:  Batch 15000 - loss: 0.098624
+                100 batches time: 0:00:51.556845
+Epoch 3:  Batch 15100 - loss: 0.079115
+                100 batches time: 0:00:51.535247
+Epoch 3:  Batch 15200 - loss: 0.079591
+                100 batches time: 0:00:51.607289
+Epoch 3:  Batch 15300 - loss: 0.066294
+                100 batches time: 0:00:52.293824
+Epoch 3:  Batch 15400 - loss: 0.118833
+                100 batches time: 0:00:51.594720
+Epoch 3:  Batch 15500 - loss: 0.075148
+                100 batches time: 0:00:51.617184
+Epoch 3:  Batch 15600 - loss: 0.062577
+                100 batches time: 0:00:52.918052
+Epoch 3:  Batch 15700 - loss: 0.097897
+                100 batches time: 0:00:51.645654
+Epoch 3:  Batch 15800 - loss: 0.084095
+                100 batches time: 0:00:51.643056
+Epoch 3:  Batch 15900 - loss: 0.099279
+                100 batches time: 0:00:51.632108
+Epoch 3:  Batch 16000 - loss: 0.114016
+                100 batches time: 0:00:51.649259
+Epoch 3:  Batch 16100 - loss: 0.075703
+                100 batches time: 0:00:51.657959
+Epoch 3:  Batch 16200 - loss: 0.060336
+                100 batches time: 0:00:51.670041
+Epoch 3:  Batch 16300 - loss: 0.077955
+                100 batches time: 0:00:51.785659
+Epoch 3:  Batch 16400 - loss: 0.063536
+                100 batches time: 0:00:51.733024
+Epoch 3:  Batch 16500 - loss: 0.071337
+                100 batches time: 0:00:54.548726
+Epoch 3:  Batch 16600 - loss: 0.080056
+                100 batches time: 0:00:51.618873
+Epoch 3:  Batch 16700 - loss: 0.085463
+                100 batches time: 0:00:51.604969
+Epoch 3:  Batch 16800 - loss: 0.080240
+                100 batches time: 0:00:51.612642
+Epoch 3:  Batch 16900 - loss: 0.102137
+                100 batches time: 0:00:51.772714
+Epoch 3:  Batch 17000 - loss: 0.069880
+                100 batches time: 0:00:51.767265
+Epoch 3:  Batch 17100 - loss: 0.073388
+                100 batches time: 0:00:51.533096
+Epoch 3:  Batch 17200 - loss: 0.124163
+                100 batches time: 0:00:51.536226
+Epoch 3:  Batch 17300 - loss: 0.090875
+                100 batches time: 0:00:57.863986
+Epoch 3:  Batch 17400 - loss: 0.081854
+                100 batches time: 0:00:51.596814
+Epoch 3:  Batch 17500 - loss: 0.086110
+                100 batches time: 0:00:51.664651
+Epoch 3:  Batch 17600 - loss: 0.074937
+                100 batches time: 0:00:51.631038
+Epoch 3:  Batch 17700 - loss: 0.097994
+                100 batches time: 0:00:51.610499
+Epoch 3:  Batch 17800 - loss: 0.058951
+                100 batches time: 0:00:51.596286
+Epoch 3:  Batch 17900 - loss: 0.079487
+                100 batches time: 0:00:51.599975
+Epoch 3:  Batch 18000 - loss: 0.077887
+                100 batches time: 0:00:51.631789
+Epoch 3:  Batch 18100 - loss: 0.084194
+                100 batches time: 0:00:57.484280
+Epoch 3:  Batch 18200 - loss: 0.083211
+                100 batches time: 0:00:51.630323
+Epoch 3:  Batch 18300 - loss: 0.085953
+                100 batches time: 0:00:51.645340
+Epoch 3:  Batch 18400 - loss: 0.082702
+                100 batches time: 0:00:51.621514
+Epoch 3:  Batch 18500 - loss: 0.066292
+                100 batches time: 0:00:53.642537
+Epoch 3:  Batch 18600 - loss: 0.077395
+                100 batches time: 0:00:51.625553
+Epoch 3:  Batch 18700 - loss: 0.117652
+                100 batches time: 0:00:51.589968
+Epoch 3:  Batch 18800 - loss: 0.074553
+                100 batches time: 0:00:51.552475
+Epoch 3:  Batch 18900 - loss: 0.067279
+                100 batches time: 0:00:54.906288
+Epoch 3:  Batch 19000 - loss: 0.074311
+                100 batches time: 0:00:51.568141
+Epoch 3:  Batch 19100 - loss: 0.100294
+                100 batches time: 0:00:54.870970
+Epoch 3:  Batch 19200 - loss: 0.059405
+                100 batches time: 0:00:51.545106
+Epoch 3:  Batch 19300 - loss: 0.069744
+                100 batches time: 0:00:51.574178
+Epoch 3:  Batch 19400 - loss: 0.076579
+                100 batches time: 0:00:51.579342
+Epoch 3:  Batch 19500 - loss: 0.086697
+                100 batches time: 0:00:51.598747
+Epoch 3:  Batch 19600 - loss: 0.059026
+                100 batches time: 0:00:51.609254
+Epoch 3:  Batch 19700 - loss: 0.096763
+                100 batches time: 0:00:52.359717
+Epoch 3:  Batch 19800 - loss: 0.070541
+                100 batches time: 0:00:52.215617
+Epoch 3:  Batch 19900 - loss: 0.075520
+                100 batches time: 0:00:51.683773
+Epoch 3:  Batch 20000 - loss: 0.081259
+                100 batches time: 0:00:51.705869
+Epoch 3:  Batch 20100 - loss: 0.099333
+                100 batches time: 0:00:52.611896
+Epoch 3:  Batch 20200 - loss: 0.075025
+                100 batches time: 0:00:53.802840
+Epoch 3:  Batch 20300 - loss: 0.120618
+                100 batches time: 0:00:51.593730
+Epoch 3:  Batch 20400 - loss: 0.080539
+                100 batches time: 0:00:51.623570
+Epoch 3:  Batch 20500 - loss: 0.077969
+                100 batches time: 0:00:51.603837
+Epoch 3:  Batch 20600 - loss: 0.090501
+                100 batches time: 0:00:52.612558
+Epoch 3:  Batch 20700 - loss: 0.064059
+                100 batches time: 0:00:51.605346
+Epoch 3:  Batch 20800 - loss: 0.072186
+                100 batches time: 0:00:51.587433
+Epoch 3:  Batch 20900 - loss: 0.072246
+                100 batches time: 0:00:53.083539
+Epoch 3:  Batch 21000 - loss: 0.089069
+                100 batches time: 0:00:51.557378
+Epoch 3:  Batch 21100 - loss: 0.093111
+                100 batches time: 0:00:51.557390
+Epoch 3:  Batch 21200 - loss: 0.091001
+                100 batches time: 0:00:51.579290
+Epoch 3:  Batch 21300 - loss: 0.090357
+                100 batches time: 0:00:53.773031
+Epoch 3:  Batch 21400 - loss: 0.105637
+                100 batches time: 0:00:51.584227
+Epoch 3:  Batch 21500 - loss: 0.087591
+                100 batches time: 0:00:51.600252
+Epoch 3:  Batch 21600 - loss: 0.060950
+                100 batches time: 0:00:58.430733
+Epoch 3:  Batch 21700 - loss: 0.065405
+                100 batches time: 0:00:51.590066
+Epoch 3:  Batch 21800 - loss: 0.070646
+                100 batches time: 0:00:51.602735
+Epoch 3:  Batch 21900 - loss: 0.096985
+                100 batches time: 0:00:51.600663
+Epoch 3:  Batch 22000 - loss: 0.060682
+                100 batches time: 0:00:51.819279
+Epoch 3:  Batch 22100 - loss: 0.094953
+                100 batches time: 0:00:51.619840
+Epoch 3:  Batch 22200 - loss: 0.054693
+                100 batches time: 0:00:51.613746
+Epoch 3:  Batch 22300 - loss: 0.091455
+                100 batches time: 0:00:51.609972
+Epoch 3:  Batch 22400 - loss: 0.075459
+                100 batches time: 0:00:52.295302
+Epoch 3:  Batch 22500 - loss: 0.092319
+                100 batches time: 0:00:51.587080
+Epoch 3:  Batch 22600 - loss: 0.083323
+                100 batches time: 0:00:51.595536
+Epoch 3:  Batch 22700 - loss: 0.091198
+                100 batches time: 0:00:51.573096
+Epoch 3:  Batch 22800 - loss: 0.090504
+                100 batches time: 0:00:55.036306
+Epoch 3:  Batch 22900 - loss: 0.092484
+                100 batches time: 0:00:52.412409
+Epoch 3:  Batch 23000 - loss: 0.068049
+                100 batches time: 0:00:51.571455
+Epoch 3:  Batch 23100 - loss: 0.073507
+                100 batches time: 0:00:51.540434
+Epoch 3:  Batch 23200 - loss: 0.068884
+                100 batches time: 0:00:55.273239
+Epoch 3:  Batch 23300 - loss: 0.073137
+                100 batches time: 0:00:51.495671
+Epoch 3:  Batch 23400 - loss: 0.077293
+                100 batches time: 0:00:51.522240
+Epoch 3:  Batch 23500 - loss: 0.061304
+                100 batches time: 0:00:51.557065
+Epoch 3:  Batch 23600 - loss: 0.099635
+                100 batches time: 0:00:59.388638
+Epoch 3:  Batch 23700 - loss: 0.063145
+                100 batches time: 0:00:51.566975
+Epoch 3:  Batch 23800 - loss: 0.102694
+                100 batches time: 0:00:51.614044
+Epoch 3:  Batch 23900 - loss: 0.092046
+                100 batches time: 0:00:54.161585
+Epoch 3:  Batch 24000 - loss: 0.064928
+                100 batches time: 0:00:56.239771
+Epoch 3:  Batch 24100 - loss: 0.072443
+                100 batches time: 0:00:51.595769
+Epoch 3:  Batch 24200 - loss: 0.084426
+                100 batches time: 0:00:51.630947
+Epoch 3:  Batch 24300 - loss: 0.079003
+                100 batches time: 0:01:02.425553
+Epoch 3:  Batch 24400 - loss: 0.080211
+                100 batches time: 0:00:51.643047
+Epoch 3:  Batch 24500 - loss: 0.074007
+                100 batches time: 0:00:51.680191
+Epoch 3:  Batch 24600 - loss: 0.085657
+                100 batches time: 0:00:51.663143
+Epoch 3:  Batch 24700 - loss: 0.141497
+                100 batches time: 0:00:55.392547
+Epoch 3:  Batch 24800 - loss: 0.083534
+                100 batches time: 0:00:51.623700
