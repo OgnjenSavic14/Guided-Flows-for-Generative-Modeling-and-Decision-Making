@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=fid
-#SBATCH --output=logs/train_%j.out
-#SBATCH --error=logs/train_%j.err
-#SBATCH --partition=gpu-teaching-2h
+#SBATCH --job-name=model_train
+#SBATCH --output=logs/train_images_%j.out
+#SBATCH --error=logs/train_images_%j.err
+#SBATCH --partition=gpu-teaching-7d
 #SBATCH --gpus=1
 
 echo "Job started on $(date)"

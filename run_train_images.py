@@ -1,16 +1,16 @@
 import torch
-from torch.utils.data import DataLoader
 
 from src.model import ConditionalUNet
 from src.train import TrainerImages
 from src.data import get_dataloader
-from src.utils import get_device, ensure_dir
+from src.utils import get_device, ensure_dir, make_fid_loader
+from src.sampler import sample_images
 
 train_root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
 test_root_dir = "/home/pml02/datasets/ImageNet_val_64x64"
 
 batch_size = 32
-num_epochs = 5
+num_epochs = 10
 lr = 1e-4
 ensure_dir("models")
 
@@ -23,6 +23,8 @@ train_loader, test_loader = get_dataloader(
     batch_size=batch_size
 )
 
+fid_loader = make_fid_loader(test_loader.dataset, n_fid=2000, batch_size=batch_size)
+
 print("Model creation...", flush = True)
 model = ConditionalUNet(
     num_classes=1001,
@@ -34,14 +36,19 @@ model = ConditionalUNet(
     attention_resolutions=(2, 4, 8),
     dropout=0.0
 )
-    
+
+
 print("Trainer creation...", flush = True)
 trainer = TrainerImages(
     model=model,
-    dataloader=train_loader,
+    train_loader=train_loader,
+    fid_loader=fid_loader,
+    sampler_fn=sample_images,
     device=device,
     lr=lr,
-    model_save_path="models/model_images.pt"
+    model_save_path="models/model_images_1.pt",
+    fid_every=1,
+    fid_samples=2000
 )
 
 print("Training...", flush = True)

@@ -65,4 +65,6 @@ def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
         x_t = midpoint_solver(model, x_t, t, h, y)
         t = t + h
 
+    x_t = torch.clamp(x_t, 0.0, 1.0)
+    
     return x_t.cpu()

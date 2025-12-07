@@ -10,11 +10,10 @@ device = get_device()
 
 batch_size = 16
 num_steps = 300
-label = 35
+label = 449
 
 print("Model creation...", flush = True)
 model = ConditionalUNet(
-    num_classes=1001,
     in_channels=3,
     model_channels=128,
     out_channels=3,
@@ -32,8 +31,8 @@ print("Sampling...", flush = True)
 samples = sample_images(model, device=device, y=label, num_steps=num_steps, batch_size=batch_size)
 
 print("Saving...", flush = True)
-#for i in range(batch_size):
-#    torchvision.utils.save_image(samples[i], f"images/sample_{i}.png")
+for i in range(batch_size):
+   torchvision.utils.save_image(samples[i], f"images/sample_{i}.png")
 
 show(iter(samples), n=len(samples), mapping_dir='dataset/label_mappings.txt', 
      outfile=f'plots/{label}.png', label_for_all=label)

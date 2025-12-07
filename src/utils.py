@@ -4,6 +4,7 @@ import itertools
 import math
 import matplotlib.pyplot as plt
 import numpy as np
+from torch.utils.data import Subset, DataLoader
 
 def get_device():
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -33,6 +34,14 @@ def load_label_mappings(mapping_file):
 def check_size(n, dataset, name="dataset"):
     if n is not None and n > len(dataset):
         raise ValueError(f"Sample size {name}={n} exceeds the dataset size {len(dataset)}")
+
+def make_fid_loader(dataset, n_fid=2000, batch_size=128, seed=123, num_workers=4):
+    g = torch.Generator().manual_seed(seed)
+    
+    perm = torch.randperm(len(dataset), generator=g)[:n_fid]
+    subset = Subset(dataset, perm)
+
+    return DataLoader(subset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
 def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3), label_for_all=None):
     """
