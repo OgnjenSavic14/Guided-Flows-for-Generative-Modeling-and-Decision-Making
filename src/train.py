@@ -4,7 +4,7 @@ import torch.optim as optim
 from datetime import datetime
 from torchmetrics.image.fid import FrechetInceptionDistance
 
-from .data import sample_mixture, sample_noise, sample_time, sample_image_noise
+from .data import sample_mixture, sample_noise, sample_time, sample_image_noise, sample_image_time
 from .dynamics import alpha_t, sigma_t, dalpha_dt, dsigma_dt
 from .sampler import sample_images
 
@@ -30,7 +30,7 @@ class Trainer:
         self.device = device
         self.cfg = config
 
-        self.optimizer = optim.Adam(self.model.parameters(), lr=config.lr)
+        self.optimizer = optim.AdamW(self.model.parameters(), lr=config.lr)
         self.loss_fn = nn.MSELoss()
 
     def train_step(self):
@@ -90,6 +90,7 @@ class TrainerImages:
         self.loss_fn = nn.MSELoss()
         self.model_save_path = model_save_path
         self.p_unconditional = p_unconditional
+        self.scaler = torch.cuda.amp.GradScaler()
 
         self.scheduler = optim.lr_scheduler.ReduceLROnPlateau(
             self.optimizer, factor=0.5, patience=200
@@ -101,38 +102,36 @@ class TrainerImages:
 
     def train_step(self, x1, y):
         self.model.train()
-
         B, C, H, W = x1.shape
         
-        x1 = x1.to(self.device)
-        y = y.to(self.device)
+        x1 = x1.to(self.device, non_blocking=True)
+        y = y.to(self.device, non_blocking=True)
 
         mask = torch.rand_like(y, dtype=torch.float, device=y.device) < self.p_unconditional
-        y = y.clone()
         y[mask] = 0
 
         # 2. Noise + time
-        x0 = torch.tensor(sample_image_noise(B, C, H, W), device=self.device)
-        t = torch.tensor(sample_time(B), dtype=torch.float32, device=self.device)
+        x0 = sample_image_noise(batch_size=B, channels=C, height=H, width=W, device=self.device)
+        t = sample_image_time(batch_size=B, device=self.device)
 
         t_b = t.view(B, 1, 1, 1)
 
         # 3. x_t and dx/dt
         x_t = alpha_t(t_b) * x1 + sigma_t(t_b) * x0
         dx_dt = dalpha_dt(t_b) * x1 + dsigma_dt(t_b) * x0
-
-        # 4. Forward
-        u_pred = self.model(x_t, t, y)
-
-        # 5. Loss
-        loss = self.loss_fn(u_pred, dx_dt)
-
-        # 6. Backprop
+        
+        # 4. Forward + Loss
+        with torch.cuda.amp.autocast():
+            u_pred = self.model(x_t, t, y)
+            loss = self.loss_fn(u_pred, dx_dt)
+        
+        # 5. Backprop
         self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
-
-        return loss.item()
+        self.scaler.scale(loss).backward()
+        self.scaler.step(self.optimizer)
+        self.scaler.update()
+        
+        return loss
 
     @torch.no_grad()
     def compute_fid(self):
@@ -176,7 +175,7 @@ class TrainerImages:
 
     def train(self, num_epochs=10):
         for epoch in range(1, num_epochs + 1):
-            epoch_loss = 0.0
+            epoch_loss = torch.tensor(0.0, device=self.device)
             num_batches = 0
 
             print(f"Starting epoch = {epoch}", flush = True)
@@ -200,7 +199,7 @@ class TrainerImages:
                     print(f"                100 batches time: {duration}", flush = True)
                     start_time = datetime.now()
                 
-            avg_loss = epoch_loss / num_batches
+            avg_loss = epoch_loss.item() / num_batches
             print(f"Epoch {epoch}/{num_epochs} - avg loss: {avg_loss:.6f}", flush = True)
 
             if epoch % self.fid_every == 0:

@@ -24,8 +24,11 @@ def sample_noise(batch_size=128, dim=2):
 def sample_time(batch_size=128):
     return np.random.uniform(0, 1, size=(batch_size,))
 
-def sample_image_noise(batch_size = 128, channels=3, height=64, width=64):
-    return np.random.randn(batch_size, channels, height, width).astype(np.float32)
+def sample_image_time(batch_size=128, device='cuda'):
+    return torch.rand(batch_size, device=device, dtype=torch.float32)
+
+def sample_image_noise(batch_size=128, channels=3, height=64, width=64, device='cuda'):
+    return torch.randn(batch_size, channels, height, width, device=device, dtype=torch.float32)
 
 class ImageNet64Dataset(Dataset):
     """
@@ -112,7 +115,7 @@ def get_dataloader(train_root, val_root = None, batch_size=128, num_workers=4, t
         elif n_test is not None:
             ds_test, _ = random_split(ds_test, [n_test, len(ds_test) - n_test])
 
-    train_loader = DataLoader(ds_train, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=num_workers)
-    test_loader = DataLoader(ds_test, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=num_workers)
+    train_loader = DataLoader(ds_train, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=num_workers, pin_memory=True, persistent_workers=True)
+    test_loader = DataLoader(ds_test, batch_size=batch_size, shuffle=False, drop_last=False, num_workers=num_workers, pin_memory=True, persistent_workers=True)
 
     return train_loader, test_loader 
