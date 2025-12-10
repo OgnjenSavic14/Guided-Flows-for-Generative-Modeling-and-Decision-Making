@@ -144,6 +144,11 @@ class TrainerImages:
         # --- 1) Real images ---
         for real_imgs, _ in self.fid_loader:
             real_imgs = real_imgs.to(self.device)
+
+            if real_count + real_imgs.size(0) > self.fid_samples:
+                needed = self.fid_samples - real_count
+                real_imgs = real_imgs[:needed]
+
             real_imgs_uint8 = (real_imgs * 255).to(torch.uint8)
             self.fid.update(real_imgs_uint8, real=True)
 
@@ -160,6 +165,7 @@ class TrainerImages:
 
             fake_imgs = self.sampler_fn(
                 self.model,
+                y = 449,
                 batch_size=batch,
                 device=self.device,
                 num_steps=100
@@ -179,6 +185,7 @@ class TrainerImages:
             num_batches = 0
 
             print(f"Starting epoch = {epoch}", flush = True)
+            epoch_start_time = datetime.now()
             start_time = datetime.now()
             for x1, y in self.train_loader:
                 loss = self.train_step(x1, y)
@@ -200,12 +207,16 @@ class TrainerImages:
                     start_time = datetime.now()
                 
             avg_loss = epoch_loss.item() / num_batches
-            print(f"Epoch {epoch}/{num_epochs} - avg loss: {avg_loss:.6f}", flush = True)
+            print(f"Epoch {epoch}/{num_epochs} - avg loss: {avg_loss:.6f}", flush = True)         
 
             if epoch % self.fid_every == 0:
                 print("Computing FID...", flush = True)
                 fid_score = self.compute_fid()
                 print(f"FID after epoch {epoch}: {fid_score:.2f}", flush = True)
+
+            epoch_end_time = datetime.now()
+            duration = epoch_end_time - epoch_start_time
+            print(f"Epoch run time: {duration}", flush = True)
 
         torch.save(self.model.state_dict(), self.model_save_path)
         print(f"Saved model to {self.model_save_path}", flush=True)

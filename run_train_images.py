@@ -9,7 +9,7 @@ from src.sampler import sample_images
 train_root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
 test_root_dir = "/home/pml02/datasets/ImageNet_val_64x64"
 
-batch_size = 64
+batch_size = 128
 num_epochs = 10
 lr = 1e-4
 ensure_dir("models")
@@ -24,7 +24,7 @@ train_loader, test_loader = get_dataloader(
     num_workers = 4
 )
 
-fid_loader = make_fid_loader(test_loader.dataset, n_fid=64, batch_size=batch_size)
+# fid_loader = make_fid_loader(test_loader.dataset, n_fid=64, batch_size=batch_size)
 
 print("Model creation...", flush = True)
 # model = ConditionalUNet(
@@ -54,13 +54,14 @@ print("Trainer creation...", flush = True)
 trainer = TrainerImages(
     model=model,
     train_loader=train_loader,
-    fid_loader=fid_loader,
+    fid_loader=test_loader,
+    p_unconditional = 0.2,
     sampler_fn=sample_images,
     device=device,
     lr=lr,
-    model_save_path="models/model_images_2.pt",
+    model_save_path="models/model_images_3h_10_12_2025.pt",
     fid_every=1,
-    fid_samples=64
+    fid_samples=40
 )
 
 print("Training...", flush = True)
