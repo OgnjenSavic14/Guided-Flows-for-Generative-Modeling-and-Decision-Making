@@ -8,6 +8,19 @@ from .data import sample_mixture, sample_noise, sample_time, sample_image_noise,
 from .dynamics import alpha_t, sigma_t, dalpha_dt, dsigma_dt
 from .sampler import sample_images
 
+import psutil, os
+
+process = psutil.Process(os.getpid())
+
+def gpu_mem():
+    alloc = torch.cuda.memory_allocated() / 1e9
+    reserved = torch.cuda.memory_reserved() / 1e9
+    max_alloc = torch.cuda.max_memory_allocated() / 1e9
+    return alloc, reserved, max_alloc
+
+def cpu_mem():
+    return process.memory_info().rss / 1e9
+
 class TrainerConfig:
     def __init__(
         self,
@@ -168,7 +181,10 @@ class TrainerImages:
                 y = 449,
                 batch_size=batch,
                 device=self.device,
-                num_steps=100
+                num_steps=100,
+                C=3,
+                H=32,
+                W=32
             ).to(self.device)
             
             fake_imgs_uint8 = (fake_imgs * 255).to(torch.uint8)
@@ -181,6 +197,7 @@ class TrainerImages:
 
     def train(self, num_epochs=10):
         for epoch in range(1, num_epochs + 1):
+            torch.cuda.reset_peak_memory_stats()
             epoch_loss = torch.tensor(0.0, device=self.device)
             num_batches = 0
 
@@ -196,10 +213,20 @@ class TrainerImages:
                 # if new_lr < prev_lr:
                 #     print(f"Learning rate decreased from {prev_lr:.2e} to {new_lr:.2e}", flush = True)
                 
-                epoch_loss += loss
+                epoch_loss += loss.detach()
                 num_batches += 1
 
                 if num_batches % 100 == 0:
+                    print(x1.shape, flush = True)
+                    alloc, reserved, max_alloc = gpu_mem()
+                    cpu = cpu_mem()
+                    print(
+                        f"[Epoch {epoch} | Batch {num_batches}] "
+                        f"GPU alloc={alloc:.2f}GB | "
+                        f"GPU peak={max_alloc:.2f}GB | "
+                        f"CPU rss={cpu:.2f}GB",
+                        flush=True
+                    )
                     end_time = datetime.now()
                     print(f"Epoch {epoch}:  Batch {num_batches} - loss: {loss:.6f}", flush = True)
                     duration = end_time - start_time
@@ -216,6 +243,7 @@ class TrainerImages:
 
             epoch_end_time = datetime.now()
             duration = epoch_end_time - epoch_start_time
+            torch.save(self.model.state_dict(), self.model_save_path)
             print(f"Epoch run time: {duration}", flush = True)
 
         torch.save(self.model.state_dict(), self.model_save_path)

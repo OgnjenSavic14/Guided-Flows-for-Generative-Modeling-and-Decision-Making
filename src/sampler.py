@@ -43,11 +43,10 @@ def midpoint_solver(model: nn.Module, x_t, t, h, y):
     return x_t + h * u_mid
 
 @torch.no_grad()
-def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
+def sample_images(model, device = "cuda", y=None, num_steps=100, batch_size=128, C=3, H=64, W=64):
     model.eval()
-    C, H, W = 3, 64, 64
     
-    x_t = torch.tensor(sample_image_noise(batch_size, C, H, W), device=device, dtype=torch.float32)
+    x_t = sample_image_noise(batch_size, C, H, W, device = device)
     h = 1.0 / num_steps
 
     t = torch.zeros(batch_size, device=device)
@@ -61,10 +60,10 @@ def sample_images(model, device='cuda', y=None, num_steps=100, batch_size=128):
     else:
         raise ValueError("y must be None, int, or torch.Tensor")
     
-    for _ in range(num_steps):
+    for i in range(num_steps):
         x_t = midpoint_solver(model, x_t, t, h, y)
         t = t + h
-
+            
     x_t = torch.clamp(x_t, 0.0, 1.0)
     
     return x_t.cpu()

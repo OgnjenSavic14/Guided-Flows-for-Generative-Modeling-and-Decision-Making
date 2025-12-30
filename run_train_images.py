@@ -6,11 +6,11 @@ from src.data import get_dataloader
 from src.utils import get_device, ensure_dir, make_fid_loader
 from src.sampler import sample_images
 
-train_root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
-test_root_dir = "/home/pml02/datasets/ImageNet_val_64x64"
+train_root_dir = "/home/pml02/datasets/ImageNet_train_32x32"
+test_root_dir = "/home/pml02/datasets/ImageNet_val_32x32"
 
-batch_size = 128
-num_epochs = 10
+batch_size = 1024
+num_epochs = 60
 lr = 1e-4
 ensure_dir("models")
 
@@ -38,17 +38,27 @@ print("Model creation...", flush = True)
 #     dropout=0.0
 # )
 
+# model = ConditionalUNet(
+#     num_classes=1001,
+#     in_channels=3,
+#     model_channels=192,
+#     out_channels=3,
+#     num_res_blocks=3,
+#     channel_mult=(1, 2, 3, 4),
+#     attention_resolutions=(2, 4, 8),
+#     dropout=0.1
+# )
+
 model = ConditionalUNet(
     num_classes=1001,
     in_channels=3,
-    model_channels=192,
     out_channels=3,
-    num_res_blocks=3,
-    channel_mult=(1, 2, 3, 4),
-    attention_resolutions=(2, 4, 8),
-    dropout=0.1
+    model_channels=128,
+    num_res_blocks=2,
+    channel_mult=(1, 2, 4),
+    attention_resolutions=(8, 4),
+    dropout=0.0
 )
-
 
 print("Trainer creation...", flush = True)
 trainer = TrainerImages(
@@ -59,7 +69,7 @@ trainer = TrainerImages(
     sampler_fn=sample_images,
     device=device,
     lr=lr,
-    model_save_path="models/model_images_3h_10_12_2025.pt",
+    model_save_path="models/model_test_4.pt",
     fid_every=1,
     fid_samples=40
 )
