@@ -1,6 +1,10 @@
 .ipynb_checkpoints/
 dataset/val_blurred/
 dataset/val_blurred.tar.gz
-models/*.pt
+
+models/*
+!models/model_test_4.pt
+
 src/__pycache__/*
 logs/
+
