@@ -10,7 +10,7 @@ train_root_dir = "/home/pml02/datasets/ImageNet_train_32x32"
 test_root_dir = "/home/pml02/datasets/ImageNet_val_32x32"
 
 batch_size = 1024
-num_epochs = 60
+num_epochs = 500
 lr = 1e-4
 ensure_dir("models")
 
@@ -59,6 +59,11 @@ model = ConditionalUNet(
     attention_resolutions=(8, 4),
     dropout=0.0
 )
+
+# CONTINUE TRAINING
+print("Loading Model...", flush = True)
+model.load_state_dict(torch.load("models/model_test_4.pt", map_location=device))
+model.to(device)
 
 print("Trainer creation...", flush = True)
 trainer = TrainerImages(
