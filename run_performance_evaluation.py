@@ -12,7 +12,7 @@ device = get_device()
 print(device, flush = True)
 
 batch_size = 1000
-num_steps = 200
+num_steps = 300
 fid = FrechetInceptionDistance(feature=2048).to(device)
 val_root = "/home/pml02/datasets/ImageNet_val_32x32"
 
@@ -62,6 +62,7 @@ for w in w_values:
 
     fake_count = 0
     i = 1
+    print("Sampling fake images...", flush = True)
     start_time = datetime.now()
     while fake_count < num_samples:
         y = torch.arange(1, 1001, device=device, dtype=torch.long)
@@ -95,7 +96,7 @@ for w in w_values:
 torch.save({
     "w_values": w_values,
     "fid_scores": fid_scores
-}, "fid_scores_w.pt")
+}, "fid_scores_w_300.pt")
 print("Saved FID scores to fid_scores_w.pt", flush=True)
 
 plt.figure(figsize=(8,5))

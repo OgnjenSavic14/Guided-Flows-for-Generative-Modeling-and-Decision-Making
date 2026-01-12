@@ -5,7 +5,7 @@
 #SBATCH --partition=gpu-teaching-2d
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-# #SBATCH --nodelist=head025
+#SBATCH --nodelist=head025
 
 echo "Job started on $(date)"
 apptainer run --nv ../pml_updated.sif python run_performance_evaluation.py

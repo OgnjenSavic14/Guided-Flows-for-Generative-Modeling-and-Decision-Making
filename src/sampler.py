@@ -67,7 +67,8 @@ def sample_images(model, w = 1.5, device = "cuda", y=None, num_steps=100, batch_
     for i in range(num_steps):
         x_t = midpoint_solver(model, x_t, t, h, y, w)
         t = t + h
-        print(f"{i + 1}-th step completed", flush = True)
+        if (i + 1) % 10 == 0:
+            print(f"{i + 1}-th step completed", flush = True)
             
     x_t = torch.clamp(x_t, 0.0, 1.0)
     
