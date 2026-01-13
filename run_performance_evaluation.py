@@ -1,5 +1,5 @@
 from torchmetrics.image.fid import FrechetInceptionDistance
-from src.utils import get_device
+from src.utils import get_device, ensure_dir
 from src.data import ImageNet64Dataset
 import torch
 from src.model import ConditionalUNet
@@ -8,6 +8,7 @@ from datetime import datetime
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
+ensure_dir("scores")
 device = get_device()
 print(device, flush = True)
 
@@ -96,8 +97,8 @@ for w in w_values:
 torch.save({
     "w_values": w_values,
     "fid_scores": fid_scores
-}, "fid_scores_w_300.pt")
-print("Saved FID scores to fid_scores_w.pt", flush=True)
+}, "scores/fid_scores_NFE_300.pt")
+print("Saved FID scores to scores/fid_scores_NFE_300.pt", flush=True)
 
 plt.figure(figsize=(8,5))
 plt.plot(w_values, fid_scores, marker='o')
