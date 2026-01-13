@@ -10,7 +10,7 @@ device = get_device()
 print(device, flush = True)
 
 batch_size = 16
-num_steps = 300
+num_steps = 200
 label = 450
 
 print("Model creation...", flush = True)
@@ -52,7 +52,7 @@ model.load_state_dict(torch.load("models/model_test_4.pt", map_location=device))
 model.to(device)
 
 print("Sampling...", flush = True)
-samples = sample_images(model, device=device, y=label, num_steps=num_steps, batch_size=batch_size, C=3, H=32, W=32)
+samples = sample_images(model, w=1.5, device=device, y=label, num_steps=num_steps, batch_size=batch_size, C=3, H=32, W=32)
 
 print("Saving...", flush = True)
 for i in range(batch_size):
