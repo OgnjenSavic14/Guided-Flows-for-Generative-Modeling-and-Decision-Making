@@ -10,7 +10,7 @@ train_root_dir = "/home/pml02/datasets/ImageNet_train_32x32"
 test_root_dir = "/home/pml02/datasets/ImageNet_val_32x32"
 
 batch_size = 1024
-num_epochs = 500
+num_epochs = 400
 lr = 1e-4
 ensure_dir("models")
 
@@ -74,7 +74,7 @@ trainer = TrainerImages(
     sampler_fn=sample_images,
     device=device,
     lr=lr,
-    model_save_path="models/model_test_4.pt",
+    model_save_path="models/model_final.pt",
     fid_every=1,
     fid_samples=40
 )

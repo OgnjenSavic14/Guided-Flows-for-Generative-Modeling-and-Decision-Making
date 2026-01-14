@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --job-name=model_train
 #SBATCH --output=logs/train_images_%j.out
