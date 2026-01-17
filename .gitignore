@@ -5,6 +5,7 @@ dataset/val_blurred.tar.gz
 models/*
 !models/model_test_4.pt
 
-src/__pycache__/*
+*.pyc
+__pycache__/
 logs/
 plot.py
