@@ -13,7 +13,7 @@ device = get_device()
 print(device, flush = True)
 
 batch_size = 1000
-num_steps = 300
+num_steps = 200
 fid = FrechetInceptionDistance(feature=2048).to(device)
 val_root = "/home/pml02/datasets/ImageNet_val_32x32"
 
@@ -32,7 +32,7 @@ model = ConditionalUNet(
 )
 
 print("Loading Model...", flush = True)
-model.load_state_dict(torch.load("models/model_test_4.pt", map_location=device))
+model.load_state_dict(torch.load("models/model_final.pt", map_location=device))
 model.to(device)
 model.eval()
 
@@ -97,8 +97,8 @@ for w in w_values:
 torch.save({
     "w_values": w_values,
     "fid_scores": fid_scores
-}, "scores/fid_scores_NFE_300.pt")
-print("Saved FID scores to scores/fid_scores_NFE_300.pt", flush=True)
+}, "scores/fid_scores_NFE_200_2.pt")
+print("Saved FID scores to scores/fid_scores_NFE_200_2.pt", flush=True)
 
 plt.figure(figsize=(8,5))
 plt.plot(w_values, fid_scores, marker='o')
@@ -107,5 +107,5 @@ plt.ylabel("FID")
 plt.title("FID score vs w")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("plots/fid_vs_w.png")
-print("Saved plot to plots/fid_vs_w.png", flush=True)
+plt.savefig("plots/fid_vs_w_test.png")
+print("Saved plot to plots/fid_vs_w_test.png", flush=True)
