@@ -2,6 +2,7 @@
 
 models/*
 !models/model_test_4.pt
+!models/model_final.pt
 
 *.pyc
 __pycache__/
