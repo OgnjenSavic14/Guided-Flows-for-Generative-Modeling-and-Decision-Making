@@ -1,7 +1,12 @@
 import torch
 import numpy as np
 from torch import nn
+import torch.nn.functional as F
+import torchvision.models as models
+import pickle
 
+from .model import ConditionalUNet
+from .utils import get_myid_to_resnetid, probs_for_label, get_device
 from .data import sample_noise, sample_image_noise
 
 @torch.no_grad()
@@ -73,3 +78,47 @@ def sample_images(model, w = 1.5, device = "cuda", y=None, num_steps=100, batch_
     x_t = torch.clamp(x_t, 0.0, 1.0)
     
     return x_t.cpu()
+
+def label_confidence(model):
+    myid_to_resnetid = get_myid_to_resnetid(
+        "/home/pml02/Guided-Flows-for-Generative-Modeling-and-Decision-Making/dataset/label_mappings.txt",
+        "/home/pml02/Guided-Flows-for-Generative-Modeling-and-Decision-Making/dataset/imagenet_class_index.json")
+
+    device = get_device()
+    print(device, flush = True)
+
+    results = {}
+
+    for y in range(1, 1001):
+        print(f"Sampling for label = {y}", flush = True)
+        images = sample_images(
+            model = model,
+            w = 1.6,
+            y = y,
+            batch_size=30,
+            device=device,
+            num_steps=200,
+            C=3,
+            H=32,
+            W=32
+        ).to(device)
+
+        print("Calculating probabilities...", flush = True)
+        p, max_probs, max_labels = probs_for_label(images, myid_to_resnetid[y])
+        p = p.detach().cpu().numpy()
+        max_probs = max_probs.detach().cpu().numpy()
+        max_labels = max_labels.detach().cpu().numpy()
+        mean = p.mean().round(2)
+        std = p.std().round(2)
+
+        results[y] = {
+            "p": p,
+            "max_probs": max_probs,
+            "max_labels": max_labels,
+            "mean": mean,
+            "std": std
+        }
+
+    print("Saving results...", flush = True)
+    with open("results.pkl", "wb") as f:
+        pickle.dump(results, f)   
