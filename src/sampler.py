@@ -169,17 +169,18 @@ def sample_images_h(model, w = 1.5, device = "cuda", y=None, num_steps=100, batc
 
         acc_map_raw += map_raw
 
-        # 2. Normalize the heatmap to [0, 1]
-        flat = map_raw.view(batch_size, -1)
-        mins = flat.min(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
-        maxs = flat.max(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
-        
-        # Avoid division by zero
-        denom = maxs - mins
-        denom[denom < 1e-6] = 1e-6
-        
-        map_norm = (map_raw - mins) / denom
-        heatmaps.append(map_norm.cpu())
+        if t in [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]:
+            # 2. Normalize the heatmap to [0, 1]
+            flat = map_raw.view(batch_size, -1)
+            mins = flat.min(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
+            maxs = flat.max(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
+            
+            # Avoid division by zero
+            denom = maxs - mins
+            denom[denom < 1e-6] = 1e-6
+            
+            map_norm = (map_raw - mins) / denom
+            heatmaps.append(map_norm.cpu())
 
         t = t + h
         if (i + 1) % 10 == 0:
