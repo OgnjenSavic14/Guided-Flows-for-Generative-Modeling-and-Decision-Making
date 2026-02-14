@@ -4,7 +4,10 @@ import itertools
 import math
 import matplotlib.pyplot as plt
 import numpy as np
+import torch.nn.functional as F
+from torchvision import models
 from torch.utils.data import Subset, DataLoader
+import json
 
 def get_device():
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -30,6 +33,19 @@ def load_label_mappings(mapping_file):
                 name_to_id[class_name] = id_num
                 id_to_name[id_num] = class_name
     return synset_to_id, name_to_id, id_to_name
+
+def get_myid_to_resnetid(mapping_file, resnet_mapping):
+    synset_to_id, _, _ = load_label_mappings(mapping_file)
+
+    with open(resnet_mapping, "r") as f:
+        resnet_map = json.load(f)
+        
+    myid_to_resnetid = {}
+
+    for res in resnet_map.keys():
+        myid_to_resnetid[synset_to_id[resnet_map[res][0]]] = int(res)
+
+    return myid_to_resnetid
 
 def check_size(n, dataset, name="dataset"):
     if n is not None and n > len(dataset):
@@ -110,3 +126,43 @@ def show(x, n, outfile=None, mapping_dir=None, title=None, img_shape=(64, 64, 3)
     else:
         plt.show()
     plt.close(fig)
+
+def preprocess_image(x: torch.Tensor) -> torch.Tensor:
+    device = get_device()
+    x = x.to(device)
+
+    if x.dtype != torch.float32:
+        x = x.float()
+    if x.max() > 1.5:
+        x = x / 255.0
+
+    x = F.interpolate(x, size=(224, 224), mode="bilinear", align_corners=False)
+
+    mean = torch.tensor([0.485, 0.456, 0.406], device=device).view(1,3,1,1)
+    std  = torch.tensor([0.229, 0.224, 0.225], device=device).view(1,3,1,1)
+    x = (x - mean) / std
+    
+    return x
+
+@torch.no_grad()
+def probs_for_label(images: torch.Tensor, label) -> torch.Tensor:
+    device = get_device()
+    model = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V2).to(device)
+    model.eval()
+
+    B = images.size(0)
+
+    if isinstance(label, int):
+        label = torch.full((B,), label, dtype=torch.long, device=device)
+    else:
+        label = label.to(device).long()
+        if label.dim() == 0:
+            label = label.expand(B)    
+
+    x = preprocess_image(images)
+    logits = model(x)
+    probs = torch.softmax(logits, dim=1)
+    
+    p = probs.gather(1, label.view(-1,1)).squeeze(1)
+    max_probs, max_labels = probs.max(dim=1)  # top1
+    return p, max_probs, max_labels
