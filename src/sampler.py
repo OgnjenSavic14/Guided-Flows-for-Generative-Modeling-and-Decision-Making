@@ -4,9 +4,10 @@ from torch import nn
 import torch.nn.functional as F
 import torchvision.models as models
 import pickle
+from pathlib import Path
 
 from .model import ConditionalUNet
-from .utils import get_myid_to_resnetid, probs_for_label, get_device, normalize_map
+from .utils import get_myid_to_resnetid, probs_for_label, get_device, normalize_map, ensure_dir
 from .data import sample_noise, sample_image_noise
 
 @torch.no_grad()
@@ -52,10 +53,23 @@ def midpoint_solver(model: nn.Module, x_t, t, h, y, w):
     return x_t + h * u_mid
 
 @torch.no_grad()
-def sample_images(model, w = 1.5, device = "cuda", y=None, num_steps=100, batch_size=128, C=3, H=64, W=64):
+def sample_images(model, noise = None, w = 1.5, device = "cuda", y=None, num_steps=100, batch_size=128, C=3, H=64, W=64):
     model.eval()
-    
-    x_t = sample_image_noise(batch_size, C, H, W, device = device)
+
+    if noise is None:
+        x_t = sample_image_noise(batch_size, C, H, W, device = device)
+    else:
+        if not isinstance(noise, torch.Tensor):
+            raise TypeError("noise must be torch.Tensor")
+
+        if noise.shape != (batch_size, C, H, W):
+            raise ValueError(
+                f"Noise has shape {noise.shape}, "
+                f"but requires {expected_shape}"
+            )
+
+        x_t = noise.to(device)
+        
     h = 1.0 / num_steps
 
     t = torch.zeros(batch_size, device=device)
@@ -78,6 +92,63 @@ def sample_images(model, w = 1.5, device = "cuda", y=None, num_steps=100, batch_
     x_t = torch.clamp(x_t, 0.0, 1.0)
     
     return x_t.cpu()
+
+def generate(label, noise = None):
+    device = get_device()
+
+    model = ConditionalUNet(
+        num_classes=1001,
+        in_channels=3,
+        out_channels=3,
+        model_channels=128,
+        num_res_blocks=2,
+        channel_mult=(1, 2, 4),
+        attention_resolutions=(8, 4),
+        dropout=0.0
+    )
+
+    print("Loading Model...", flush = True)
+    SRC_DIR = Path(__file__).resolve().parent
+    PROJECT_ROOT = SRC_DIR.parent
+    MODELS_DIR = PROJECT_ROOT / "models"
+    ensure_dir(MODELS_DIR)
+    model_path = MODELS_DIR / "model_final.pt"
+    
+    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.to(device)
+    
+    if noise is not None:
+        if not isinstance(noise, torch.Tensor):
+            raise TypeError("noise must be torch.Tensor")
+        
+        if noise.dim() == 3:
+            if noise.shape != (3, 32, 32):
+                raise ValueError("3D noise must have shape (3, 32, 32)")
+            noise = noise.unsqueeze(0)
+        elif noise.dim() == 4:
+            if noise.shape != (1, 3, 32, 32):
+                raise ValueError("4D noise must have shape (1, 3, 32, 32)")
+        else:
+            raise ValueError("Noise must have shape (3,32,32) or (1,3,32,32)")
+
+    image = samples = sample_images(model, noise = noise, w=1.6, device=device, y=label, num_steps=200, batch_size=1, C=3, H=32, W=32)
+    image = image.squeeze(0)
+
+    SCORES_DIR = PROJECT_ROOT / "scores"
+    ensure_dir(SCORES_DIR)
+    scores_path = SCORES_DIR / "results_2.pkl"
+
+    with open(scores_path, "rb") as f:
+        results = pickle.load(f)
+
+    if label not in results:
+        raise ValueError(f"Label {label} confidence not calculated.")
+
+    mean = results[label]["mean"]
+    std = results[label]["std"]
+
+    return image, mean, std
+
 
 def label_confidence(model):
     myid_to_resnetid = get_myid_to_resnetid(
