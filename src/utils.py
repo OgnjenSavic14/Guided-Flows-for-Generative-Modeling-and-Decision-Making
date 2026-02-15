@@ -166,3 +166,155 @@ def probs_for_label(images: torch.Tensor, label) -> torch.Tensor:
     p = probs.gather(1, label.view(-1,1)).squeeze(1)
     max_probs, max_labels = probs.max(dim=1)  # top1
     return p, max_probs, max_labels
+
+import torch
+
+def normalize_map(map_raw, eps=1e-6):
+    """
+    Normalizes heatmap to [0, 1] per sample.
+
+    Input:
+        map_raw: Tensor of shape (B, H, W) or (H, W)
+    Output:
+        map_norm: Tensor of same shape, normalized to [0, 1]
+    """
+    if map_raw.dim() == 2:
+        mins = map_raw.min()
+        maxs = map_raw.max()
+        return (map_raw - mins) / (maxs - mins + eps)
+
+    elif map_raw.dim() == 3:
+        B = map_raw.shape[0]
+        flat = map_raw.view(B, -1)
+        mins = flat.min(dim=1)[0].view(B, 1, 1)
+        maxs = flat.max(dim=1)[0].view(B, 1, 1)
+        return (map_raw - mins) / (maxs - mins + eps)
+
+    else:
+        raise ValueError("map_raw must have shape (H, W) or (B, H, W)")
+
+def chw_to_hwc(img_chw: torch.Tensor):
+    return img_chw.permute(1, 2, 0).contiguous()
+
+def plot_generation_with_heatmaps(sample, noise, snapshots, heatmaps, acc_heatmap, snapshot_ts, savepath):
+    """
+    sample:        (1,3,H,W) or (3,H,W)
+    snapshots:     (S,1,3,H,W) or (S,3,H,W)
+    heatmaps:      (S,1,H,W) or (S,H,W)
+    acc_heatmap:   (1,H,W) or (H,W)
+    """
+
+    # --- squeeze batch dims if batch_size=1 ---
+    if sample.dim() == 4 and sample.size(0) == 1:
+        sample = sample.squeeze(0)  # (3,H,W)
+
+    if noise.dim() == 4 and noise.size(0) == 1:
+        noise = noise.squeeze(0)    # (3,H,W)
+
+    if acc_heatmap.dim() == 3 and acc_heatmap.size(0) == 1:
+        acc_heatmap = acc_heatmap.squeeze(0)  # (H,W)
+
+    if snapshots.dim() == 5 and snapshots.size(1) == 1:
+        snapshots = snapshots.squeeze(1)  # (S,3,H,W)
+    elif snapshots.dim() == 4 and snapshots.size(0) == 1:
+        snapshots = snapshots.squeeze(0)
+
+    if heatmaps.dim() == 4 and heatmaps.size(1) == 1:
+        heatmaps = heatmaps.squeeze(1)  # (S,H,W)
+
+    # Ensure cpu for plotting
+    sample = sample.detach().cpu()
+    noise = noise.detach().cpu()
+    snapshots = snapshots.detach().cpu()
+    heatmaps = heatmaps.detach().cpu()
+    acc_heatmap = acc_heatmap.detach().cpu()
+
+    S = snapshots.shape[0]
+    # --- prepare final image ---
+    final_img = chw_to_hwc(sample).clamp(0, 1).numpy()
+    acc_hm = acc_heatmap.clamp(0, 1).numpy()
+    noise_img = chw_to_hwc(noise).clamp(0, 1).numpy()
+
+    # --- figure layout ---
+    cols = 1 + S
+    # cols = max(5, S)
+    fig = plt.figure(figsize=(3.0 * cols, 9))
+    gs = fig.add_gridspec(nrows=3, ncols=cols, height_ratios=[1.2, 1.0, 1.0])
+
+    # # Top-left: final image
+    # ax0 = fig.add_subplot(gs[0, 0:cols//2])
+    # ax0.imshow(final_img)
+    # ax0.set_title("Final image")
+    # ax0.axis("off")
+
+    # Row 0: final image spans all columns
+    ax_final = fig.add_subplot(gs[0, :])
+    ax_final.imshow(final_img)
+    ax_final.set_title("Final image")
+    ax_final.axis("off")
+
+    # # Top-right: final image + accumulated heatmap
+    # ax1 = fig.add_subplot(gs[0, cols//2:cols])
+    # ax1.imshow(acc_hm, cmap = "jet", vmin = 0.0, vmax = 1.0)
+    # ax1.set_title("Accumulated heatmap")
+    # ax1.axis("off")
+
+    # Row 1, Col 0: starting noise
+    ax_noise = fig.add_subplot(gs[1, 0])
+    ax_noise.imshow(noise_img)
+    ax_noise.set_title("Starting noise x_0")
+    ax_noise.axis("off")
+
+    # Row 2, Col 0: accumulated heatmap
+    ax_acc = fig.add_subplot(gs[2, 0])
+    ax_acc.imshow(acc_hm, cmap="jet", vmin=0.0, vmax=1.0)
+    ax_acc.set_title("Accumulated heatmap")
+    ax_acc.axis("off")
+
+    # Gap column (Row 1 & 2)
+    for r in [1, 2]:
+        ax_gap = fig.add_subplot(gs[r, 1])
+        ax_gap.axis("off")
+
+    # # Row 2: snapshots
+    # for k in range(S):
+    #     ax = fig.add_subplot(gs[1, k])
+    #     img = chw_to_hwc(snapshots[k]).clamp(0, 1).numpy()
+    #     ax.imshow(img)
+    #     ax.set_title(f"t = {snapshot_ts[k]}")
+    #     ax.axis("off")
+
+    # # Row 3: snapshot heatmaps (overlay on snapshot)
+    # for k in range(S):
+    #     ax = fig.add_subplot(gs[2, k])
+    #     hm = heatmaps[k].clamp(0, 1).numpy()
+    #     ax.imshow(hm, cmap = "jet", vmin = 0.0, vmax = 1.0)
+    #     # ax.set_title(f"Heatmap {k+1}")
+    #     ax.axis("off")
+
+    # # If cols > S, hide unused axes in rows 2 and 3
+    # for k in range(S, cols):
+    #     fig.add_subplot(gs[1, k]).axis("off")
+    #     fig.add_subplot(gs[2, k]).axis("off")
+
+    # Row 1: snapshots
+    for k in range(S):
+        ax = fig.add_subplot(gs[1, 1 + k])
+        img = chw_to_hwc(snapshots[k]).clamp(0, 1).numpy()
+        ax.imshow(img)
+        ax.set_title(f"t = {snapshot_ts[k]}")
+        ax.axis("off")
+
+    # Row 2: raw heatmaps
+    for k in range(S):
+        ax = fig.add_subplot(gs[2, 1 + k])
+        hm = heatmaps[k].clamp(0, 1).numpy()
+        ax.imshow(hm, cmap="jet", vmin=0.0, vmax=1.0)
+        ax.axis("off")
+
+    # Make a small gap using spacing instead of a full column
+    fig.subplots_adjust(wspace=0.1, hspace=0.25)
+
+    plt.tight_layout()
+    plt.savefig(savepath, dpi=300, bbox_inches="tight")
+    plt.close()

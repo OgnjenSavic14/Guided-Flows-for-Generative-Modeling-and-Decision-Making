@@ -6,7 +6,7 @@ import torchvision.models as models
 import pickle
 
 from .model import ConditionalUNet
-from .utils import get_myid_to_resnetid, probs_for_label, get_device
+from .utils import get_myid_to_resnetid, probs_for_label, get_device, normalize_map
 from .data import sample_noise, sample_image_noise
 
 @torch.no_grad()
@@ -140,10 +140,11 @@ def midpoint_solver_h(model: nn.Module, x_t, t, h, y, w):
     return x_t + h * u_mid, u_mid
 
 @torch.no_grad()
-def sample_images_h(model, w = 1.5, device = "cuda", y=None, num_steps=100, batch_size=128, C=3, H=64, W=64):
+def sample_images_h(model, w = 1.5, device = "cuda", y=None, num_steps=100, snapshot_ts = None, batch_size=128, C=3, H=64, W=64):
     model.eval()
     
-    x_t = sample_image_noise(batch_size, C, H, W, device = device)
+    noise = sample_image_noise(batch_size, C, H, W, device = device)
+    x_t = noise
     h = 1.0 / num_steps
 
     t = torch.zeros(batch_size, device=device)
@@ -156,46 +157,34 @@ def sample_images_h(model, w = 1.5, device = "cuda", y=None, num_steps=100, batc
         y = y.to(device)
     else:
         raise ValueError("y must be None, int, or torch.Tensor")
+
+    if snapshot_ts == None:
+        snapshot_ts = [0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.98, 0.99, 1.0]
     
     heatmaps = []
+    snapshots = []
+    snapshot_steps = [int(round(t * num_steps)) for t in snapshot_ts]
     acc_map_raw = torch.zeros(batch_size, H, W, device=device)
 
     for i in range(num_steps):
-        x_t, u_t = midpoint_solver_h(model, x_t, t, h, y, w)
+        x_t, u_mid = midpoint_solver_h(model, x_t, t, h, y, w)
 
         # 1. Compute L1 Norm (magnitude) across channels
         # Shape becomes: (Batch, H, W)
-        map_raw = u_t.abs().sum(dim=1)
+        map_raw = u_mid.abs().sum(dim=1)
+        acc_map_raw += normalize_map(map_raw)
 
-        acc_map_raw += map_raw
-
-        if t in [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]:
-            # 2. Normalize the heatmap to [0, 1]
-            flat = map_raw.view(batch_size, -1)
-            mins = flat.min(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
-            maxs = flat.max(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
-            
-            # Avoid division by zero
-            denom = maxs - mins
-            denom[denom < 1e-6] = 1e-6
-            
-            map_norm = (map_raw - mins) / denom
-            heatmaps.append(map_norm.cpu())
+        if i + 1 in snapshot_steps:
+            heatmaps.append(normalize_map(map_raw).cpu())
+            snapshots.append(x_t.cpu())
 
         t = t + h
         if (i + 1) % 10 == 0:
             print(f"{i + 1}-th step completed", flush = True)
-            
 
     # Normalize the accumulated map to [0, 1] for final visualization
-    flat_acc = acc_map_raw.view(batch_size, -1)
-    mins_acc = flat_acc.min(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
-    maxs_acc = flat_acc.max(dim=1, keepdim=True)[0].view(batch_size, 1, 1)
-    denom_acc = maxs_acc - mins_acc
-    denom_acc[denom_acc < 1e-6] = 1e-6
-    
-    acc_map_final = (acc_map_raw - mins_acc) / denom_acc
+    acc_map_final = normalize_map(acc_map_raw)
 
     x_t = torch.clamp(x_t, 0.0, 1.0)
     
-    return x_t.cpu(), torch.stack(heatmaps), acc_map_final.cpu()
+    return x_t.cpu(), noise.cpu(), torch.stack(snapshots), torch.stack(heatmaps), acc_map_final.cpu()
