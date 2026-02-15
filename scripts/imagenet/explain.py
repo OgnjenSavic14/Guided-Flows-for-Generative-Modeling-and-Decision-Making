@@ -1,10 +1,14 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
 
-from src.model import ConditionalUNet
+from src.imagenet.model import ConditionalUNet
 from src.utils import get_device, ensure_dir, chw_to_hwc, plot_generation_with_heatmaps
-from src.sampler import sample_images_h
+from src.xai.heatmaps import sample_images_h
 
 device = get_device()
 print(device, flush = True)

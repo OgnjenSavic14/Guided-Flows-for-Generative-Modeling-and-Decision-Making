@@ -1,10 +1,14 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import torch
 
-from src.model import ConditionalUNet
-from src.train import TrainerImages
-from src.data import get_dataloader
+from src.imagenet.model import ConditionalUNet
+from src.imagenet.train import TrainerImages
+from src.imagenet.data import get_dataloader
 from src.utils import get_device, ensure_dir, make_fid_loader
-from src.sampler import sample_images
+from src.imagenet.sampler import sample_images
 
 train_root_dir = "/home/pml02/datasets/ImageNet_train_32x32"
 test_root_dir = "/home/pml02/datasets/ImageNet_val_32x32"

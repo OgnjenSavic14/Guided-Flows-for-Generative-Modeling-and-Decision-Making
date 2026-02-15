@@ -1,4 +1,8 @@
-from src.data import get_dataloader
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from src.imagenet.data import get_dataloader
 from src.utils import load_label_mappings, show
 
 train_root_dir = "/home/pml02/datasets/ImageNet_train_64x64"

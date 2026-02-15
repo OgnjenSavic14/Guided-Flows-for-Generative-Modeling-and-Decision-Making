@@ -1,9 +1,13 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 from torchmetrics.image.fid import FrechetInceptionDistance
 from src.utils import get_device, ensure_dir
-from src.data import ImageNet64Dataset
+from src.imagenet.data import ImageNet64Dataset
 import torch
-from src.model import ConditionalUNet
-from src.sampler import sample_images
+from src.imagenet.model import ConditionalUNet
+from src.imagenet.sampler import sample_images
 from datetime import datetime
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt

@@ -1,9 +1,13 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
 
-from src.model import MLP
-from src.sampler import sampling_from_guided_flows
+from src.toy.model import MLP
+from src.toy.sampler import sampling_from_guided_flows
 from src.utils import get_device, ensure_dir
 
 
