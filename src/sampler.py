@@ -95,7 +95,7 @@ def label_confidence(model):
             model = model,
             w = 1.6,
             y = y,
-            batch_size=30,
+            batch_size=100,
             device=device,
             num_steps=200,
             C=3,
@@ -120,7 +120,7 @@ def label_confidence(model):
         }
 
     print("Saving results...", flush = True)
-    with open("results.pkl", "wb") as f:
+    with open("results_2.pkl", "wb") as f:
         pickle.dump(results, f)   
 
 
