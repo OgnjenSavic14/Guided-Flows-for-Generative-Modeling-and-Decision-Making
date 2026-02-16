@@ -11,7 +11,7 @@ print(device, flush = True)
 
 batch_size = 16
 num_steps = 200
-label = 450
+label = 980
 
 print("Model creation...", flush = True)
 # model = ConditionalUNet(
