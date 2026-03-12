@@ -1,15 +1,14 @@
 .ipynb_checkpoints/
 
-models/*
-!models/model_test_4.pt
-!models/model_final.pt
-!models/model_final_2.pt
+outputs/models/*
+!outputs/models/model_test_4.pt
+!outputs/models/model_final.pt
+!outputs/models/model_final_2.pt
 
 *.pyc
 __pycache__/
 *.slurm
 
 logs/
-plot.py
 
 dataset/

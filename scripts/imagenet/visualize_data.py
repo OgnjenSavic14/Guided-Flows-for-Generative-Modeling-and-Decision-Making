@@ -1,4 +1,8 @@
-from src.data import get_dataloader
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from src.imagenet.data import get_dataloader
 from src.utils import load_label_mappings, show
 
 train_root_dir = "/home/pml02/datasets/ImageNet_train_64x64"
@@ -20,6 +24,6 @@ test_imgs, test_labels = next(iter(test_loader))
 test_labels = test_labels.tolist()
 
 show(x = iter(zip(train_imgs, train_labels)), n=len(train_imgs), mapping_dir=mapping_directory, 
-     outfile=f'plots/train_samples.png')
+     outfile=f'outputs/figures/train_samples.png')
 show(x = iter(zip(test_imgs, test_labels)), n=len(test_imgs), mapping_dir=mapping_directory, 
-     outfile=f'plots/test_samples.png')
+     outfile=f'outputs/figures/test_samples.png')

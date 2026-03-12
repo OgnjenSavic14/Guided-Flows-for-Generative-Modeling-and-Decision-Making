@@ -4,25 +4,7 @@ from PIL import Image
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 from torchvision import transforms
-from .utils import load_label_mappings, check_size
-
-def sample_mixture(batch_size=1):
-    means = {
-    1: np.array([-2, 0]),
-    2: np.array([2, 0]),
-    3: np.array([0, 2 * np.sqrt(3)])
-    }
-    cov = np.eye(2)
-    
-    y = np.random.choice([1, 2, 3], size=batch_size)
-    x = np.array([np.random.multivariate_normal(means[label], cov) for label in y])
-    return x, y
-
-def sample_noise(batch_size=128, dim=2):
-    return np.random.normal(size=(batch_size, dim))
-
-def sample_time(batch_size=128):
-    return np.random.uniform(0, 1, size=(batch_size,))
+from ..utils import load_label_mappings, check_size
 
 def sample_image_time(batch_size=128, device='cuda'):
     return torch.rand(batch_size, device=device, dtype=torch.float32)

@@ -1,10 +1,14 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
 
-from src.model import ConditionalUNet
+from src.imagenet.model import ConditionalUNet
 from src.utils import get_device, ensure_dir, chw_to_hwc, plot_generation_with_heatmaps
-from src.sampler import sample_images_h
+from src.imagenet.sampler import sample_images_h
 
 device = get_device()
 print(device, flush = True)
@@ -26,7 +30,7 @@ model = ConditionalUNet(
 )
 
 print("Loading Model...", flush = True)
-model.load_state_dict(torch.load("models/model_final.pt", map_location=device))
+model.load_state_dict(torch.load("outputs/models/model_final.pt", map_location=device))
 model.to(device)
 
 snapshot_ts = [0.2, 0.5, 0.8, 0.9, 0.95, 0.98, 1.0]
@@ -44,8 +48,8 @@ sample, noise, snapshots, heatmaps, acc_heatmap = sample_images_h(
     W=32
 )
 
-ensure_dir("plots")
-savepath = "plots/king_penguin.png"
+ensure_dir("outputs/figures")
+savepath = "outputs/figures/king_penguin.png"
 
 print("Ploting...", flush = True)
 plot_generation_with_heatmaps(sample, noise, snapshots, heatmaps, acc_heatmap, snapshot_ts, savepath)

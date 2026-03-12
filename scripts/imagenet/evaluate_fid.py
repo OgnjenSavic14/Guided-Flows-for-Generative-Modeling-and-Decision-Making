@@ -1,14 +1,18 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 from torchmetrics.image.fid import FrechetInceptionDistance
 from src.utils import get_device, ensure_dir
-from src.data import ImageNet64Dataset
+from src.imagenet.data import ImageNet64Dataset
 import torch
-from src.model import ConditionalUNet
-from src.sampler import sample_images
+from src.imagenet.model import ConditionalUNet
+from src.imagenet.sampler import sample_images
 from datetime import datetime
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
-ensure_dir("scores")
+ensure_dir("outputs/scores")
 device = get_device()
 print(device, flush = True)
 
@@ -32,7 +36,7 @@ model = ConditionalUNet(
 )
 
 print("Loading Model...", flush = True)
-model.load_state_dict(torch.load("models/model_final.pt", map_location=device))
+model.load_state_dict(torch.load("outputs/models/model_final.pt", map_location=device))
 model.to(device)
 model.eval()
 
@@ -97,8 +101,8 @@ for w in w_values:
 torch.save({
     "w_values": w_values,
     "fid_scores": fid_scores
-}, "scores/fid_scores_NFE_200_2.pt")
-print("Saved FID scores to scores/fid_scores_NFE_200_2.pt", flush=True)
+}, "outputs/scores/fid_scores_NFE_200_2.pt")
+print("Saved FID scores to outputs/scores/fid_scores_NFE_200_2.pt", flush=True)
 
 plt.figure(figsize=(8,5))
 plt.plot(w_values, fid_scores, marker='o')
@@ -107,5 +111,5 @@ plt.ylabel("FID")
 plt.title("FID score vs w")
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("plots/fid_vs_w_test.png")
-print("Saved plot to plots/fid_vs_w_test.png", flush=True)
+plt.savefig("outputs/figures/fid_vs_w_test.png")
+print("Saved plot to outputs/figures/fid_vs_w_test.png", flush=True)

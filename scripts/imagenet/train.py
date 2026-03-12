@@ -1,10 +1,14 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import torch
 
-from src.model import ConditionalUNet
-from src.train import TrainerImages
-from src.data import get_dataloader
+from src.imagenet.model import ConditionalUNet
+from src.imagenet.train import TrainerImages
+from src.imagenet.data import get_dataloader
 from src.utils import get_device, ensure_dir, make_fid_loader
-from src.sampler import sample_images
+from src.imagenet.sampler import sample_images
 
 train_root_dir = "/home/pml02/datasets/ImageNet_train_32x32"
 test_root_dir = "/home/pml02/datasets/ImageNet_val_32x32"
@@ -12,7 +16,7 @@ test_root_dir = "/home/pml02/datasets/ImageNet_val_32x32"
 batch_size = 1024
 num_epochs = 300
 lr = 1e-4
-ensure_dir("models")
+ensure_dir("outputs/models")
 
 device = get_device()
 
@@ -62,7 +66,7 @@ model = ConditionalUNet(
 
 # CONTINUE TRAINING
 print("Loading Model...", flush = True)
-model.load_state_dict(torch.load("models/model_final_2.pt", map_location=device))
+model.load_state_dict(torch.load("outputs/models/model_final_2.pt", map_location=device))
 model.to(device)
 
 print("Trainer creation...", flush = True)
@@ -74,7 +78,7 @@ trainer = TrainerImages(
     sampler_fn=sample_images,
     device=device,
     lr=lr,
-    model_save_path="models/model_final_2.pt",
+    model_save_path="outputs/models/model_final_2.pt",
     fid_every=1,
     fid_samples=40
 )

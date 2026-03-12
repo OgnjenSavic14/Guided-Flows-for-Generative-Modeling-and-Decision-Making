@@ -1,8 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import numpy as np
 import glob
 import matplotlib.pyplot as plt
 
-all_samples = sorted(glob.glob("samples/*.npz"))
+all_samples = sorted(glob.glob("outputs/samples/*.npz"))
 
 all_points = []
 
@@ -24,5 +28,5 @@ for i, points in enumerate(all_points):
     ax.set_title(f"$\\omega = {i:.1f}$")
 
 plt.tight_layout()
-plt.savefig("plots/Figure_3_1.png", dpi=300)
+plt.savefig("outputs/figures/Figure_3_1.png", dpi=300)
 plt.close()

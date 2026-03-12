@@ -1,9 +1,13 @@
-from src.model import MLP
-from src.train import Trainer, TrainerConfig
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from src.toy.model import MLP
+from src.toy.train import Trainer, TrainerConfig
 from src.utils import get_device, ensure_dir
 
 if __name__ == "__main__":
-    ensure_dir("models")
+    ensure_dir("outputs/models")
 
     device = get_device()
     print("Using device:", device)
@@ -17,4 +21,3 @@ if __name__ == "__main__":
     trainer = Trainer(model, device, config)
 
     trainer.train()
-

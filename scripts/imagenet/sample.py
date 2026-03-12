@@ -1,11 +1,15 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import torch
-from src.model import ConditionalUNet
-from src.sampler import sample_images
+from src.imagenet.model import ConditionalUNet
+from src.imagenet.sampler import sample_images
 from src.utils import get_device, ensure_dir, show
 import torchvision
 import os
 
-ensure_dir("images")
+ensure_dir("outputs/generated")
 device = get_device()
 print(device, flush = True)
 
@@ -48,7 +52,7 @@ model = ConditionalUNet(
 )
 
 print("Loading Model...", flush = True)
-model.load_state_dict(torch.load("models/model_test_4.pt", map_location=device))
+model.load_state_dict(torch.load("outputs/models/model_test_4.pt", map_location=device))
 model.to(device)
 
 print("Sampling...", flush = True)
@@ -56,7 +60,7 @@ samples = sample_images(model, w=1.5, device=device, y=label, num_steps=num_step
 
 print("Saving...", flush = True)
 for i in range(batch_size):
-   torchvision.utils.save_image(samples[i], f"images/sample_test_4_{i}.png")
+   torchvision.utils.save_image(samples[i], f"outputs/generated/sample_test_4_{i}.png")
 
 show(iter(samples), n=len(samples), mapping_dir='dataset/label_mappings.txt', 
-     outfile=f'plots/test__4_{label}.png', label_for_all=label)
+     outfile=f'outputs/figures/test__4_{label}.png', label_for_all=label)

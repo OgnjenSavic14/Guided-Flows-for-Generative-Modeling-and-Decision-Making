@@ -1,19 +1,23 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
 
-from src.model import MLP
-from src.sampler import sampling_from_guided_flows
+from src.toy.model import MLP
+from src.toy.sampler import sampling_from_guided_flows
 from src.utils import get_device, ensure_dir
 
 
 if __name__ == "__main__":
-    ensure_dir("samples")
+    ensure_dir("outputs/samples")
     device = get_device()
     print("Using device:", device, flush = True)
 
     model = MLP().to(device)
-    model.load_state_dict(torch.load("models/model_final.pt", map_location=device))
+    model.load_state_dict(torch.load("outputs/models/model_final.pt", map_location=device))
     model.eval()
 
     print("Sampling...", flush = True)
@@ -40,4 +44,4 @@ if __name__ == "__main__":
         all_clusters.append(np.concatenate(cluster_batches, axis=0))
 
     print("Saving samples", flush = True)
-    np.savez("samples/points_4.npz", *all_clusters)
+    np.savez("outputs/samples/points_4.npz", *all_clusters)
